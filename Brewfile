@@ -31,17 +31,11 @@ brew "zsh"
 # Bash scripts that integrate bat with various command-line tools
 brew "eth-p/software/bat-extras"
 cask "alfred"
-cask "brave-browser"
 cask "dropbox"
 cask "font-fira-code"
-cask "gitkraken"
 cask "google-chrome"
-cask "hyper"
 cask "iterm2"
-cask "microsoft-auto-update"
-cask "microsoft-edge"
 cask "visual-studio-code"
-cask "vlc"
 cask "zoomus"
 mas "Snappy", id: 512617038
 mas "Xcode", id: 497799835
