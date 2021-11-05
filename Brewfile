@@ -36,6 +36,6 @@ cask "font-fira-code"
 cask "google-chrome"
 cask "iterm2"
 cask "visual-studio-code"
-cask "zoomus"
+cask "zoom"
 mas "Snappy", id: 512617038
 mas "Xcode", id: 497799835
