@@ -39,3 +39,6 @@ cask "visual-studio-code"
 cask "zoom"
 mas "Snappy", id: 512617038
 mas "Xcode", id: 497799835
+mas "Reeder", id: 1449412482
+mas "GIPHY Capture", id: 668208984
+mas "Slack", id: 803453959
