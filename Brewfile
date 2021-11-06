@@ -35,6 +35,10 @@ brew "eth-p/software/bat-extras"
 cask "1password"
 # Application launcher and productivity software
 cask "alfred"
+# HDR photo editor with filters, batch processing and more
+cask "aurora-hdr"
+# Web debugging Proxy application
+cask "charles"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
 # Enhance your RAW files to open up even more possibilities with Adobe Photoshop and Lightroom®
