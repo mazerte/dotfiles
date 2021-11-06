@@ -7,8 +7,12 @@ tap "homebrew/core"
 tap "mazerte/software"
 # Shell plugin manager
 brew "antibody"
+# Integrated shell for working with the AWS CLI
+brew "aws-shell"
 # Official Amazon AWS command-line interface
 brew "awscli"
+# Official Amazon AWS command-line interface
+brew "awscli@1"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Pack, ship and run any application as a lightweight container
