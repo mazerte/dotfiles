@@ -14,6 +14,7 @@
     ~/.config/bat:
       create: true
       path: config/bat
+    ~/.editorconfig:
 
 - create:
     - ~/Work
