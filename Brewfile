@@ -46,6 +46,8 @@ cask "dxo-pureraw"
 cask "font-fira-code"
 # Web browser
 cask "google-chrome"
+# HTTP and GraphQL Client
+cask "insomnia"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
 # AI photo editing. Awesome. Faster.
