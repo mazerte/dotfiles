@@ -44,6 +44,12 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Finder                                                                      #
 ###############################################################################
 
+# Show icons for hard drives, servers, and removable media on the desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
 # Finder > View > Show Path Bar
 defaults write com.apple.finder ShowPathbar -bool true
 
@@ -132,7 +138,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain InitialKeyRepeat -int 20
 
 ###############################################################################
 # Screen                                                                      #
