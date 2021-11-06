@@ -51,6 +51,8 @@ cask "alfred"
 cask "aurora-hdr"
 # Web debugging Proxy application
 cask "charles"
+# Bitfocus Companion enables the reasonably priced Elgato Streamdeck to be a professional shotbox surface for an increasing amount of different presentation switchers, video playback software and broadcast equipment.
+cask "companion"
 # App to build and share containerized applications and microservices
 cask "docker"
 # Client for the Dropbox cloud storage service
@@ -74,6 +76,8 @@ cask "macfuse"
 cask "optyx"
 # Music streaming service
 cask "spotify"
+# Unleash your creative genius and make waves across Twitch and YouTube.
+cask "stream-deck"
 # Disk encryption software focusing on security based on TrueCrypt
 cask "veracrypt"
 # Open-source code editor
