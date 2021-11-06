@@ -23,6 +23,7 @@ setopt globDots
 
 # Create Aliases
 alias ls='exa'
+alias cat='bat'
 alias exa='exa -laFh --git'
 alias trail='<<<${(F)path}'
 alias ftrail='<<<${(F)fpath}'

@@ -1,6 +1,7 @@
 [user]
 	name = Mathieu Desvé
-	email = 236866+mazerte@users.noreply.github.com
+	email = mathieu.desve@gmail.com
+	signingkey = AE0E70B3846F87F7
 
 [alias]
 
@@ -129,10 +130,14 @@
 	changed = green
 	untracked = cyan
 
+[gpg]
+
+	program = gpg
+
 [commit]
 
 	# https://help.github.com/articles/signing-commits-using-gpg/
-	# gpgsign = true
+	gpgsign = true
 
 [diff]
 

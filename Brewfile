@@ -48,6 +48,8 @@ cask "dxo-pureraw"
 cask "font-fira-code"
 # Web browser
 cask "google-chrome"
+# Tools to protect your emails and files
+cask "gpg-suite"
 # HTTP and GraphQL Client
 cask "insomnia"
 # Terminal emulator as alternative to Apple's Terminal app

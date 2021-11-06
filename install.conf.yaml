@@ -19,6 +19,7 @@
     ~/.editorconfig:
     ~/.curlrc:
     ~/.aws: /Volumes/Secured/config/aws/dot
+    ~/.gnupg: /Volumes/Secured/config/gnupg/dot
 
 - create:
     - ~/Work
