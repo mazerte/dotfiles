@@ -7,6 +7,8 @@ tap "homebrew/core"
 tap "mazerte/software"
 # Shell plugin manager
 brew "antibody"
+# Official Amazon AWS command-line interface
+brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Modern replacement for 'ls'
@@ -52,8 +54,12 @@ cask "insomnia"
 cask "iterm2"
 # AI photo editing. Awesome. Faster.
 cask "luminar-ai"
+# File system integration
+cask "macfuse"
 # Cull 1000 photos in 60 seconds.
 cask "optyx"
+# Disk encryption software focusing on security based on TrueCrypt
+cask "veracrypt"
 # Open-source code editor
 cask "visual-studio-code"
 # Video communication and virtual meeting platform

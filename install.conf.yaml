@@ -18,6 +18,7 @@
       path: config/bat
     ~/.editorconfig:
     ~/.curlrc:
+    ~/.aws: /Volumes/Secured/config/aws/dot
 
 - create:
     - ~/Work
