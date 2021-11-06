@@ -11,6 +11,8 @@ brew "antibody"
 brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
 # Modern replacement for 'ls'
 brew "exa"
 # Distributed revision control system
@@ -27,6 +29,10 @@ brew "mas"
 brew "n"
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
+# Tools for one-time password authentication systems
+brew "oath-toolkit"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
 # JavaScript package manager
 brew "yarn"
 # UNIX shell (command interpreter)
@@ -41,6 +47,8 @@ cask "alfred"
 cask "aurora-hdr"
 # Web debugging Proxy application
 cask "charles"
+# App to build and share containerized applications and microservices
+cask "docker"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
 # Enhance your RAW files to open up even more possibilities with Adobe Photoshop and Lightroom®
@@ -60,6 +68,8 @@ cask "luminar-ai"
 cask "macfuse"
 # Cull 1000 photos in 60 seconds.
 cask "optyx"
+# Music streaming service
+cask "spotify"
 # Disk encryption software focusing on security based on TrueCrypt
 cask "veracrypt"
 # Open-source code editor
