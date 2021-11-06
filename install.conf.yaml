@@ -7,6 +7,8 @@
 - link:
     ~/.zshrc:
     ~/.zshenv:
+    ~/.gitattributes:
+    ~/.gitignore:
     ~/.gitconfig:
     ~/.hyper.js:
     ~/.nanorc:
@@ -15,6 +17,7 @@
       create: true
       path: config/bat
     ~/.editorconfig:
+    ~/.curlrc:
 
 - create:
     - ~/Work
