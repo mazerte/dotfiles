@@ -1,6 +1,7 @@
 tap "eth-p/software"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
@@ -53,6 +54,8 @@ cask "aurora-hdr"
 cask "charles"
 # Bitfocus Companion enables the reasonably priced Elgato Streamdeck to be a professional shotbox surface for an increasing amount of different presentation switchers, video playback software and broadcast equipment.
 cask "companion"
+# Drivers for DisplayLink docks, adapters and monitors
+cask "displaylink"
 # App to build and share containerized applications and microservices
 cask "docker"
 # Client for the Dropbox cloud storage service
@@ -84,7 +87,13 @@ cask "veracrypt"
 cask "visual-studio-code"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "GarageBand", id: 682658836
 mas "GIPHY CAPTURE", id: 668208984
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
 mas "Reeder", id: 1449412482
 mas "Slack", id: 803453959
 mas "Snappy", id: 512617038
+mas "Xcode", id: 497799835
