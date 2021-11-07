@@ -42,3 +42,6 @@
     - command: ./setup_macos.zsh
       stdout: true
       stderr: true
+    - command: ./setup_dock.zsh
+      stdout: true
+      stderr: true
