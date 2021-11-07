@@ -9,16 +9,14 @@ I ***learned*** about dotfiles at [dotfiles.eieio.xyz](http://dotfiles.eieio.xyz
 2. `git clone https://github.com/eieioxyz/dotfiles_macos.git ~/.dotfiles`. We'll start with `https` but switch to `ssh` after everything is installed.
 3. `cd ~/.dotfiles`
 4. If necessary, `git checkout <another_branch>`.
-6. [`./install`](install) 
-7. During this install, setup 1password. You will be prompt to enter your AppleID password.
-8. Restart computer.
-9. Setup up Dropbox (use multifactor authentication!) and allow files to sync before setting up dependent applications. Alfred settings are stored here. Mackup depends on this as well (and thus so do Terminal and VS Code).
-10. Run `mackup restore`. Consider doing a `mackup restore --dry-run --verbose` first.
+5. [`./install`](install) 
+6. During this install, setup 1password. You will be prompt to enter your AppleID password.
+7. Restart computer.
+8. Setup up Dropbox (use multifactor authentication!) and allow files to sync before setting up dependent applications. Alfred settings are stored here. Mackup depends on this as well (and thus so do Terminal and VS Code).
+9. Run `mackup restore`. Consider doing a `mackup restore --dry-run --verbose` first.
 
 ### Manual Steps
 
 ### TODO
-
-- Fix Homebrew path on first setup
 
 

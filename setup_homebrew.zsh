@@ -7,6 +7,7 @@ if exists brew; then
 else
   echo "brew doesn't exist, continuing with install"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  export PATH="/opt/homebrew/bin:$PATH"
 fi
 
 
