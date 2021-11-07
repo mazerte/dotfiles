@@ -6,6 +6,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "mazerte/software"
+tap "sambadevi/powerlevel9k"
 # Shell plugin manager
 brew "antibody"
 # Integrated shell for working with the AWS CLI
@@ -44,6 +45,8 @@ brew "yarn"
 brew "zsh"
 # Bash scripts that integrate bat with various command-line tools
 brew "eth-p/software/bat-extras"
+# A badass zsh theme with more power than a normal earthling
+brew "sambadevi/powerlevel9k/powerlevel9k"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Application launcher and productivity software
@@ -63,6 +66,7 @@ cask "dropbox"
 # Enhance your RAW files to open up even more possibilities with Adobe Photoshop and Lightroom®
 cask "dxo-pureraw"
 cask "font-fira-code"
+cask "font-meslo-lg-nerd-font"
 # Web browser
 cask "google-chrome"
 # Tools to protect your emails and files

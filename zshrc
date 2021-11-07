@@ -30,36 +30,6 @@ alias ftrail='<<<${(F)fpath}'
 alias man=batman
 alias bbd="brew bundle dump --force --describe"
 
-# Customize Prompt(s)
-source "$DOTFILES/spaceship_shlvl.zsh"
-
-SPACESHIP_CHAR_SYMBOL="❯ "
-SPACESHIP_TIME_SHOW=true
-SPACESHIP_EXEC_TIME_ELAPSED=0
-SPACESHIP_BATTERY_SHOW=always
-SPACESHIP_EXIT_CODE_SHOW=true
-
-SPACESHIP_PROMPT_ORDER=(
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  git           # Git section (git_branch + git_status)
-  package       # Package version
-  # node          # Node.js section
-  exec_time     # Execution time
-  line_sep      # Line break
-  shlvl         # Custom section from spaceship_shlvl.zsh
-  # vi_mode       # Vi-mode indicator
-  # jobs          # Background jobs indicator
-  char          # Prompt character
-)
-
-SPACESHIP_RPROMPT_ORDER=(
-  exit_code
-  battery
-  time
-)
-
 # Add Locations to $path Array
 typeset -U path
 
@@ -81,6 +51,34 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 source <(antibody init)
 antibody bundle < "$DOTFILES/antibody_plugins"
 
+# Customize Prompt(s)
+export TERM="xterm-256color"
+
+# Disable completion directory permission verification
+ZSH_DISABLE_COMPFIX=true
+
+POWERLEVEL9K_MODE='nerdfont-fontconfig'
+POWERLEVEL9K_CONTEXT_TEMPLATE="$USER"
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="$ "
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND="006"
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="015"
+POWERLEVEL9K_EXECUTION_TIME_ICON=$'\uFACD'
+POWERLEVEL9K_NVM_BACKGROUND="003"
+POWERLEVEL9K_NVM_FOREGROUND="000"
+POWERLEVEL9K_NODE_ICON=$'\uE718'
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs virtualenv rvm nvm command_execution_time time)
+
+# Set oh-my-zsh path
+ZSH=$(antibody path ohmyzsh/ohmyzsh)
+source /opt/homebrew/opt/powerlevel9k/powerlevel9k.zsh-theme
+
+ZSH_THEME="powerlevel9k/powerlevel9k"
+
 # AWS
 export PATH="/opt/homebrew/opt/awscli@1/bin:$PATH"
 alias aws2='/opt/homebrew/opt/awscli@2/bin/aws'
@@ -98,3 +96,6 @@ zstyle ':plugin:history-search-multi-word' clear-on-cancel 'yes'
 
 # Load "New" Completion System
 autoload -Uz compinit && compinit
+
+# Run dotfiles installer
+alias dotinstall="~/.dotfiles/install"

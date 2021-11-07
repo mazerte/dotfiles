@@ -1,10 +1,12 @@
+ohmyzsh/ohmyzsh
+
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 
 zdharma-continuum/history-search-multi-word
 zdharma-continuum/fast-syntax-highlighting
 
-denysdovhan/spaceship-prompt
+# denysdovhan/spaceship-prompt
 
 # This plugin might need to be the last one.
 # https://github.com/zsh-users/zsh-history-substring-search#usage
