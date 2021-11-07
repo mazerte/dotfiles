@@ -94,6 +94,7 @@ mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Reeder", id: 1449412482
+mas "ScreenBrush", id: 1233965871
 mas "Slack", id: 803453959
 mas "Snappy", id: 512617038
 mas "Xcode", id: 497799835
