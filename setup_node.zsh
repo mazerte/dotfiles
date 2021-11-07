@@ -11,6 +11,9 @@ if exists $N_PREFIX/bin/node; then
   echo "Node $($N_PREFIX/bin/node --version) & NPM $($N_PREFIX/bin/npm --version) already installed with n"
 else
   echo "Installing Node & NPM with n..."
+  n 10
+  n 14
+  n lts
   n latest
 fi
 
