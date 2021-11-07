@@ -13,6 +13,7 @@
     ~/.hyper.js:
     ~/.nanorc:
     ~/.mackup.cfg:
+    ~/.mackup:
     ~/.config/bat:
       create: true
       path: config/bat
