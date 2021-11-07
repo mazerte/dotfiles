@@ -4,6 +4,7 @@ I ***learned*** about dotfiles at [dotfiles.eieio.xyz](http://dotfiles.eieio.xyz
 
 ## Restore Instructions
 
+0. Create a [new Personal access token](https://github.com/settings/tokens) in Github to use HTTPS repositories
 1. `xcode-select --install` (Command Line Tools are required for Git and Homebrew)
 2. `git clone https://github.com/eieioxyz/dotfiles_macos.git ~/.dotfiles`. We'll start with `https` but switch to `ssh` after everything is installed.
 3. `cd ~/.dotfiles`
@@ -15,5 +16,8 @@ I ***learned*** about dotfiles at [dotfiles.eieio.xyz](http://dotfiles.eieio.xyz
 
 ### Manual Steps
 
+### TODO
+
+- Fix Homebrew path on first setup
 
 
