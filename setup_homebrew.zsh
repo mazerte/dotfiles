@@ -24,10 +24,15 @@ fi
 
 brew bundle --verbose
 
-# Should we wrap this in a conditional?
-echo "Enter superuser (sudo) password to accept Xcode license"
-sudo xcodebuild -license accept
-sudo xcodebuild -runFirstLaunch
+./xcode-license-accepted.zsh
+if [ $? -eq 0 ]
+then
+    echo "xcode license already accepted"
+else
+  echo "Enter superuser (sudo) password to accept Xcode license"
+  sudo xcodebuild -license accept
+  sudo xcodebuild -runFirstLaunch
+fi
 
 
 echo "Installing VS Code Extensions"
