@@ -19,7 +19,12 @@
     ~/.editorconfig:
     ~/.curlrc:
     ~/.aws: /Volumes/Secured/config/aws/dot
-    ~/.gnupg: /Volumes/Secured/config/gnupg/dot
+    ~/.gnupg:
+      path: /Volumes/Secured/config/gnupg/dot
+      force: true
+    ~/.ssh:
+      path: /Volumes/Secured/config/ssh/dot
+      force: true
 
 - create:
     - ~/Work
