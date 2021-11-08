@@ -25,6 +25,8 @@ brew "exa"
 brew "git"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
+# Configurable static site generator
+brew "hugo"
 # Pager program similar to more
 brew "less"
 # Keep your Mac's application settings in sync
@@ -79,6 +81,8 @@ cask "iterm2"
 cask "luminar-ai"
 # File system integration
 cask "macfuse"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok"
 # Cull 1000 photos in 60 seconds.
 cask "optyx"
 # Music streaming service
