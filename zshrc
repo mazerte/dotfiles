@@ -1,4 +1,5 @@
 # Set Variables
+unset PREFIX
 export NULLCMD=bat
 export DOTFILES="$HOME/.dotfiles"
 export HOMEBREW_BUNDLE_FILE="$DOTFILES/Brewfile"
@@ -52,8 +53,6 @@ function mkcd() {
 
 # Use ZSH Plugins
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-source <(antibody init)
-antibody bundle < "$DOTFILES/antibody_plugins"
 
 # Customize Prompt(s)
 export TERM="xterm-256color"
@@ -75,9 +74,20 @@ POWERLEVEL9K_NVM_BACKGROUND="003"
 POWERLEVEL9K_NVM_FOREGROUND="000"
 POWERLEVEL9K_NODE_ICON=$'\uE718'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs virtualenv rvm nvm command_execution_time time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs nvm command_execution_time time)
+
+# NVM
+# export NVM_LAZY=1
+NVM_AUTOLOAD=1
+NVM_HOMEBREW=$(brew --prefix nvm)
+
+source <(antibody init)
+antibody bundle < "$DOTFILES/antibody_plugins"
 
 # Set oh-my-zsh path
+plugins=(
+  nvm
+)
 ZSH=$(antibody path ohmyzsh/ohmyzsh)
 source /opt/homebrew/opt/powerlevel9k/powerlevel9k.zsh-theme
 

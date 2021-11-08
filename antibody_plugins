@@ -1,4 +1,5 @@
 ohmyzsh/ohmyzsh
+ohmyzsh/ohmyzsh path:plugins/nvm
 
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions

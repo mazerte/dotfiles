@@ -7,7 +7,6 @@ echo "\n<<< Starting Node Setup >>>\n"
 # thus making it available below during the first install.
 # See `zshrc` where `N_PREFIX/bin` is added to `$path`.
 
-unset PREFIX
 source $(brew --prefix nvm)/nvm.sh
 if [ ! -d "${HOME}/.nvm" ]; then
   mkdir ~/.nvm
