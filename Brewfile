@@ -31,10 +31,10 @@ brew "less"
 brew "mackup"
 # Mac App Store command-line interface
 brew "mas"
-# Node version management
-brew "n"
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
+# Manage multiple Node.js versions
+brew "nvm"
 # Tools for one-time password authentication systems
 brew "oath-toolkit"
 # Pinentry for GPG on Mac

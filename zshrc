@@ -20,6 +20,11 @@ setopt incAppendHistoryTime
 setopt autoCd
 setopt globDots
 
+# NVM
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"   # This loads nvm bash_completion
+source $(brew --prefix nvm)/nvm.sh
 
 # Create Aliases
 alias ls='exa'
@@ -34,7 +39,6 @@ alias bbd="brew bundle dump --force --describe"
 typeset -U path
 
 path=(
-  "$N_PREFIX/bin"
   $path
   "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 )
