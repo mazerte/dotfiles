@@ -16,11 +16,12 @@ if [ ! -d "${HOME}/.nvm" ]; then
   nvm install 10
 fi
 
-nvm use node
+nvm use --lts
 
 # Install Global NPM Packages
 npm install --global typescript
 npm install --global http-server
+npm install --global aws-cdk
 
 echo "Global NPM Packages Installed:"
 npm list --global --depth=0
