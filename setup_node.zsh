@@ -13,7 +13,6 @@ if [ ! -d "${HOME}/.nvm" ]; then
   nvm install node
   nvm install --lts
   nvm install 14
-  nvm install 10
 
   nvm alias default lts/*
 fi

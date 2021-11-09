@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+echo "\nHomebrew update\n"
+brew update
+brew upgrade
+brew upgrade --cask
+
+echo "\nAntibody update\n"
+antibody update
+
+echo "\nNode update\n"
+nvm install node --latest-npm --reinstall-packages-from=node
+nvm install --lts --latest-npm --reinstall-packages-from='lts/*'
+nvm install 14 --latest-npm --reinstall-packages-from=14
+nvm cache clear
+nvm use --lts
+npm update -g
+
