@@ -9,6 +9,10 @@ tap "mazerte/software"
 tap "sambadevi/powerlevel9k"
 # Shell plugin manager
 brew "antibody"
+# Automatic configure script builder
+brew "autoconf"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
 # Integrated shell for working with the AWS CLI
 brew "aws-shell"
 # Official Amazon AWS command-line interface
@@ -17,6 +21,8 @@ brew "awscli"
 brew "awscli@1"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Modern replacement for 'ls'
@@ -33,6 +39,8 @@ brew "hugo"
 brew "jq"
 # Pager program similar to more
 brew "less"
+# X.509 and CMS library
+brew "libksba"
 # Keep your Mac's application settings in sync
 brew "mackup"
 # Mac App Store command-line interface
@@ -45,8 +53,12 @@ brew "nvm"
 brew "oath-toolkit"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
+# Safe, concurrent, practical language
+brew "rust"
 # JavaScript package manager
 brew "yarn"
+# General-purpose lossless data-compression library
+brew "zlib"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Bash scripts that integrate bat with various command-line tools

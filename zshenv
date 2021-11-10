@@ -10,6 +10,7 @@ source "/opt/homebrew/opt/nvm/nvm.sh"
 typeset -U path
 
 path=(
+  "/opt/homebrew/Cellar/rust/1.56.1/bin"
   "/Applications/Docker.app/Contents/Resources/bin"
   $path
   "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
@@ -30,6 +31,9 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# RSVM (Rust)
+[[ -s ~/.rsvm/rsvm.sh ]] && . ~/.rsvm/rsvm.sh
 
 function exists() {
   # `command -v` is similar to `which`
