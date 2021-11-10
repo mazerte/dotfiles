@@ -23,6 +23,8 @@ brew "docker"
 brew "exa"
 # Distributed revision control system
 brew "git"
+# Git extension for versioning large files
+brew "git-lfs"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
 # Configurable static site generator
@@ -91,6 +93,8 @@ cask "ngrok"
 cask "optyx"
 # Music streaming service
 cask "spotify"
+# System monitor for the menu bar
+cask "stats"
 # Unleash your creative genius and make waves across Twitch and YouTube.
 cask "stream-deck"
 # Disk encryption software focusing on security based on TrueCrypt

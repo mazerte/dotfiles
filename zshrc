@@ -30,16 +30,6 @@ alias ftrail='<<<${(F)fpath}'
 alias man=batman
 alias bbd="brew bundle dump --force --describe"
 
-# Add Locations to $path Array
-typeset -U path
-
-path=(
-  "/opt/homebrew/Caskroom/miniforge/base/bin"
-  $path
-  "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-)
-
-
 # Write Handy Functions
 function mkcd() {
   mkdir -p "$@" && cd "$_";
@@ -67,8 +57,11 @@ POWERLEVEL9K_EXECUTION_TIME_ICON=$'\uFACD'
 POWERLEVEL9K_NVM_BACKGROUND="003"
 POWERLEVEL9K_NVM_FOREGROUND="000"
 POWERLEVEL9K_NODE_ICON=$'\uE718'
+POWERLEVEL9K_AWS_BACKGROUND="208"
+POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
+POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs nvm command_execution_time time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs anaconda nvm aws command_execution_time time)
 
 # NVM
 NVM_HOMEBREW=$(brew --prefix nvm)

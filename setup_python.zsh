@@ -22,3 +22,4 @@ function create_or_update_env() {
 }
 
 create_or_update_env tensorflow ./conda/tensorflow-apple-metal.yml "Python 3.9 (tensorflow)"
+create_or_update_env pytorch ./conda/pytorch-apple-metal.yml "Python 3.8 (pytorch)"

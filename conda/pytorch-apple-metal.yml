@@ -1,10 +1,12 @@
 name: tensorflow
 
 dependencies:
-    - python=3.9
+    - python=3.8
     - pip>=19.0
     - jupyter
-    - apple::tensorflow-deps==2.6.0
+    - pytorch
+    - pytorch
+    - torchvision
     - scikit-learn
     - scipy
     - pandas
@@ -20,11 +22,7 @@ dependencies:
     - transformers
     - datasets
     - tokenizers
-    - tensorboard
     - pip:
-        - tensorflow-macos==2.6.0
-        - tensorflow-metal==0.2.0
-        - tensorflow_datasets
         - bayesian-optimization
         - notebook
         - jupyter
