@@ -4,7 +4,6 @@ editorconfig.editorconfig
 chrmarti.regex
 vscode-icons-team.vscode-icons
 wayou.vscode-todo-highlight
-streetsidesoftware.code-spell-checker
 johnpapa.vscode-peacock
 pranaygp.vscode-css-peek
 donjayamanne.githistory
@@ -13,3 +12,6 @@ formulahendry.auto-rename-ta
 sdras.night-owl
 ms-python.python
 ms-toolsai.jupyter
+rebornix.ruby
+rust-lang.rust
+
