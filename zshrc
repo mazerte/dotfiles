@@ -34,6 +34,7 @@ alias bbd="brew bundle dump --force --describe"
 typeset -U path
 
 path=(
+  "/opt/homebrew/Caskroom/miniforge/base/bin"
   $path
   "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 )
@@ -43,7 +44,6 @@ path=(
 function mkcd() {
   mkdir -p "$@" && cd "$_";
 }
-
 
 # Use ZSH Plugins
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
@@ -101,6 +101,7 @@ antibody bundle < "$DOTFILES/antibody_plugins"
 # Set oh-my-zsh path
 plugins=(
   nvm
+  aws
 )
 ZSH=$(antibody path ohmyzsh/ohmyzsh)
 source /opt/homebrew/opt/powerlevel9k/powerlevel9k.zsh-theme
@@ -128,3 +129,4 @@ autoload -Uz compinit && compinit
 # Run dotfiles installer
 alias dotinstall="~/.dotfiles/install"
 alias dotupdate="~/.dotfiles/update"
+

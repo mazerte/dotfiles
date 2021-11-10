@@ -1,5 +1,6 @@
 ohmyzsh/ohmyzsh
 ohmyzsh/ohmyzsh path:plugins/nvm
+ohmyzsh/ohmyzsh path:plugins/aws
 
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions

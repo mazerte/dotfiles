@@ -27,6 +27,8 @@ brew "git"
 brew "httpie"
 # Configurable static site generator
 brew "hugo"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # Pager program similar to more
 brew "less"
 # Keep your Mac's application settings in sync
@@ -81,6 +83,8 @@ cask "iterm2"
 cask "luminar-ai"
 # File system integration
 cask "macfuse"
+# Minimal installer for conda specific to conda-forge
+cask "miniforge"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
 # Cull 1000 photos in 60 seconds.
