@@ -23,6 +23,7 @@
     ~/.gnupg:
       path: /Volumes/Secured/config/gnupg/dot
       force: true
+    ~/.rvmrc:
     ~/.ssh:
       path: /Volumes/Secured/config/ssh/dot
       force: true
@@ -38,6 +39,9 @@
       stdout: true
       stderr: true
     - command: ./setup_node.zsh
+      stdout: true
+      stderr: true
+    - command: ./setup_ruby.zsh
       stdout: true
       stderr: true
     - command: ./setup_python.zsh

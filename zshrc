@@ -58,10 +58,12 @@ POWERLEVEL9K_NVM_BACKGROUND="003"
 POWERLEVEL9K_NVM_FOREGROUND="000"
 POWERLEVEL9K_NODE_ICON=$'\uE718'
 POWERLEVEL9K_AWS_BACKGROUND="208"
+POWERLEVEL9K_RVM_BACKGROUND="160"
+POWERLEVEL9K_RVM_FOREGROUND="007"
 POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
 POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs anaconda nvm aws command_execution_time time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs anaconda rvm nvm aws command_execution_time time)
 
 # NVM
 NVM_HOMEBREW=$(brew --prefix nvm)
@@ -87,6 +89,9 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+# RVM
+source ~/.rvm/scripts/rvm
 
 source <(antibody init)
 antibody bundle < "$DOTFILES/antibody_plugins"
