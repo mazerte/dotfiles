@@ -71,6 +71,7 @@ cask "1password"
 cask "alfred"
 # HDR photo editor with filters, batch processing and more
 cask "aurora-hdr"
+cask "autodesk-fusion360"
 # Web debugging Proxy application
 cask "charles"
 # Bitfocus Companion enables the reasonably priced Elgato Streamdeck to be a professional shotbox surface for an increasing amount of different presentation switchers, video playback software and broadcast equipment.
@@ -103,6 +104,8 @@ cask "miniforge"
 cask "ngrok"
 # Cull 1000 photos in 60 seconds.
 cask "optyx"
+# G-code generator for 3D printers (RepRap, Makerbot, Ultimaker etc.)
+cask "prusaslicer"
 # Music streaming service
 cask "spotify"
 # System monitor for the menu bar
