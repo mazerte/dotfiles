@@ -82,7 +82,7 @@
 	sort = -committerdate
 
 [core]
-	editor = nano
+	editor = vim
 
 	# Use custom `.gitignore` and `.gitattributes`.
 	excludesfile = ~/.gitignore

@@ -6,6 +6,8 @@
 
 - link:
     ~/.zshrc:
+    ~/.vimrc:
+    ~/.vim:
     ~/.zshenv:
     ~/.gitattributes:
     ~/.gitignore:
