@@ -29,6 +29,9 @@
     ~/.ssh:
       path: /Volumes/Secured/config/ssh/dot
       force: true
+    ~/Library/Preferences/helm:
+      path: helm
+      force: true
 
 - create:
     - ~/Work

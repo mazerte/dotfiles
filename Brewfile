@@ -25,6 +25,8 @@ brew "bat"
 brew "cmake"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Pack, ship and run any application as a lightweight container
+brew "docker", link: false
 # Modern replacement for 'ls'
 brew "exa"
 # Distributed revision control system
@@ -33,6 +35,8 @@ brew "git"
 brew "git-lfs"
 # Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
+# Kubernetes package manager
+brew "helm"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
 # Configurable static site generator
@@ -51,6 +55,8 @@ brew "make"
 brew "mas"
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
+# HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
+brew "nginx"
 # Manage multiple Node.js versions
 brew "nvm"
 # Tools for one-time password authentication systems
