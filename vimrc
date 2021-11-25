@@ -40,8 +40,8 @@ set modelines=4
 " Enable per-directory .vimrc files and disable unsafe commands in them
 set exrc
 set secure
-" Enable line numbers
-set number
+@REM " Enable line numbers
+@REM set number
 " Enable syntax highlighting
 syntax on
 " Highlight current line
@@ -75,11 +75,11 @@ set showmode
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
-" Use relative line numbers
-if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
-endif
+@REM " Use relative line numbers
+@REM if exists("&relativenumber")
+@REM 	set relativenumber
+@REM 	au BufReadPost * set relativenumber
+@REM endif
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
