@@ -29,6 +29,7 @@ alias trail='<<<${(F)path}'
 alias ftrail='<<<${(F)fpath}'
 alias man=batman
 alias bbd="brew bundle dump --force --describe"
+alias lp='sudo lsof -i -P | grep LISTEN'
 
 # Write Handy Functions
 function mkcd() {
