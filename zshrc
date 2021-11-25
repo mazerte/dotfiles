@@ -64,7 +64,7 @@ POWERLEVEL9K_RVM_FOREGROUND="007"
 POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
 POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs anaconda rvm nvm aws command_execution_time time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs anaconda kubecontext rvm nvm aws command_execution_time time)
 
 # NVM
 NVM_HOMEBREW=$(brew --prefix nvm)
