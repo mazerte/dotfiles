@@ -101,6 +101,7 @@ antibody bundle < "$DOTFILES/antibody_plugins"
 plugins=(
   nvm
   aws
+  kubectl
 )
 ZSH=$(antibody path ohmyzsh/ohmyzsh)
 source /opt/homebrew/opt/powerlevel9k/powerlevel9k.zsh-theme
