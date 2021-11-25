@@ -21,16 +21,18 @@ brew "awscli"
 brew "awscli@1"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Cross-platform make
+brew "cmake"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
-# Pack, ship and run any application as a lightweight container
-brew "docker"
 # Modern replacement for 'ls'
 brew "exa"
 # Distributed revision control system
 brew "git"
 # Git extension for versioning large files
 brew "git-lfs"
+# Graph visualization software from AT&T and Bell Labs
+brew "graphviz"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
 # Configurable static site generator
@@ -43,6 +45,8 @@ brew "less"
 brew "libksba"
 # Keep your Mac's application settings in sync
 brew "mackup"
+# Utility for directing compilation
+brew "make"
 # Mac App Store command-line interface
 brew "mas"
 # Free (GNU) replacement for the Pico text editor
@@ -55,6 +59,8 @@ brew "oath-toolkit"
 brew "pinentry-mac"
 # Safe, concurrent, practical language
 brew "rust"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
 # JavaScript package manager
 brew "yarn"
 # General-purpose lossless data-compression library
