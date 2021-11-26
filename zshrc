@@ -30,6 +30,9 @@ alias ftrail='<<<${(F)fpath}'
 alias man=batman
 alias bbd="brew bundle dump --force --describe"
 alias lp='sudo lsof -i -P | grep LISTEN'
+alias kdr='kubectl --dry-run=client -o yaml'
+alias kbg='_kbg(){ kubectl get "$@" -o yaml | bat -l yaml;  unset -f _kbg; }; _kbg'
+
 
 # Write Handy Functions
 function mkcd() {

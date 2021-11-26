@@ -69,6 +69,8 @@ brew "rust"
 brew "watch"
 # JavaScript package manager
 brew "yarn"
+# YAML syntax highlighter to bring colours where only jq could
+brew "yh"
 # Process YAML documents from the CLI
 brew "yq"
 # General-purpose lossless data-compression library
