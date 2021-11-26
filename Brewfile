@@ -69,6 +69,8 @@ brew "rust"
 brew "watch"
 # JavaScript package manager
 brew "yarn"
+# Process YAML documents from the CLI
+brew "yq"
 # General-purpose lossless data-compression library
 brew "zlib"
 # UNIX shell (command interpreter)
