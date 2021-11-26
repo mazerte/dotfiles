@@ -1,4 +1,5 @@
 tap "eth-p/software"
+tap "hidetatz/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-drivers"
@@ -79,6 +80,8 @@ brew "zlib"
 brew "zsh"
 # Bash scripts that integrate bat with various command-line tools
 brew "eth-p/software/bat-extras"
+# Colorize your kubectl output
+brew "hidetatz/tap/kubecolor"
 # A badass zsh theme with more power than a normal earthling
 brew "sambadevi/powerlevel9k/powerlevel9k"
 # Password manager that keeps all passwords secure behind one password

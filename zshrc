@@ -22,6 +22,8 @@ setopt autoCd
 setopt globDots
 
 # Create Aliases
+alias watch='watch --color ' # https://unix.stackexchange.com/questions/25327/watch-command-alias-expansion
+alias kubectl='kubecolor'
 alias ls='exa'
 alias cat='bat'
 alias exa='exa -laFh --git'
@@ -32,6 +34,7 @@ alias bbd="brew bundle dump --force --describe"
 alias lp='sudo lsof -i -P | grep LISTEN'
 alias kdr='kubectl --dry-run=client -o yaml'
 alias kbg='_kbg(){ kubectl get "$@" -o yaml | bat -l yaml;  unset -f _kbg; }; _kbg'
+alias wkg='_wkg(){ watch --color kubecolor --force-colors get "$@";  unset -f _wkg; }; _wkg'
 
 
 # Write Handy Functions
