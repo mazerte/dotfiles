@@ -48,6 +48,19 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # Customize Prompt(s)
 export TERM="xterm-256color"
 
+prompt_canaconda() {
+  # Depending on the conda version, either might be set. This
+  # variant works even if both are set.
+  local _path=$CONDA_ENV_PATH$CONDA_PREFIX
+  local _env=`basename $_path`
+  if ! [ -z "$_path" ] | [ "$_env" = "base" ]; then
+    # config - can be overwritten in users' zshrc file.
+    set_default POWERLEVEL9K_ANACONDA_LEFT_DELIMITER "("
+    set_default POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER ")"
+    "$1_prompt_segment" "$0" "$2" "blue" "$DEFAULT_COLOR" "$POWERLEVEL9K_ANACONDA_LEFT_DELIMITER$(basename $_path)$POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER" 'PYTHON_ICON'
+  fi
+}
+
 prompt_caws() {
   local aws_region=`aws configure get region`
   local aws_profile="${AWS_PROFILE:-$AWS_DEFAULT_PROFILE} (${AWS_DEFAULT_REGION:-$aws_region})"
@@ -90,7 +103,7 @@ POWERLEVEL9K_RVM_FOREGROUND="007"
 POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
 POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs anaconda kubecontext rvm nvm caws command_execution_time time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs canaconda kubecontext rvm nvm caws command_execution_time time)
 
 # NVM
 NVM_HOMEBREW=$(brew --prefix nvm)
