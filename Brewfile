@@ -128,6 +128,8 @@ cask "ngrok"
 cask "optyx"
 # G-code generator for 3D printers (RepRap, Makerbot, Ultimaker etc.)
 cask "prusaslicer"
+# Plugin for AWS CLI to start and end sessions that connect to managed instances
+cask "session-manager-plugin"
 # Music streaming service
 cask "spotify"
 # System monitor for the menu bar

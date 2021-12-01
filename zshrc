@@ -48,6 +48,25 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # Customize Prompt(s)
 export TERM="xterm-256color"
 
+prompt_caws() {
+  local aws_region=`aws configure get region`
+  local aws_profile="${AWS_PROFILE:-$AWS_DEFAULT_PROFILE} (${AWS_DEFAULT_REGION:-$aws_region})"
+
+  if [[ -n "$aws_profile" ]]; then
+    "$1_prompt_segment" "$0" "$2" red white "$aws_profile" 'AWS_ICON'
+  fi
+}
+
+function asr() {
+  if [[ -z "$1" ]]; then
+    unset AWS_DEFAULT_REGION
+    echo AWS region cleared.
+    return
+  fi
+
+  export AWS_DEFAULT_REGION=$1
+}
+
 # Disable completion directory permission verification
 ZSH_DISABLE_COMPFIX=true
 
@@ -65,12 +84,13 @@ POWERLEVEL9K_NVM_BACKGROUND="003"
 POWERLEVEL9K_NVM_FOREGROUND="000"
 POWERLEVEL9K_NODE_ICON=$'\uE718'
 POWERLEVEL9K_AWS_BACKGROUND="208"
+POWERLEVEL9K_CAWS_BACKGROUND="208"
 POWERLEVEL9K_RVM_BACKGROUND="160"
 POWERLEVEL9K_RVM_FOREGROUND="007"
 POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
 POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs anaconda kubecontext rvm nvm aws command_execution_time time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs anaconda kubecontext rvm nvm caws command_execution_time time)
 
 # NVM
 NVM_HOMEBREW=$(brew --prefix nvm)
@@ -116,6 +136,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # AWS
 export PATH="/opt/homebrew/opt/awscli@1/bin:$HOME/.aws/:$PATH"
+export PATH="/usr/local/sessionmanagerplugin/bin/:$PATH"
 alias aws2='/opt/homebrew/opt/awscli@2/bin/aws'
 
 # Conda
