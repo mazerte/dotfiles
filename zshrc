@@ -61,6 +61,20 @@ prompt_canaconda() {
   fi
 }
 
+prompt_crvm() {
+  local _rvm_current=`rvm current`
+  local _rvm_default=`rvm alias show default`
+  if ! [ "$_rvm_current" = "$_rvm_default" ]; then
+    if [ $commands[rvm-prompt] ]; then
+      local version_and_gemset=${$(rvm-prompt v p)/ruby-}
+
+      if [[ -n "$version_and_gemset" ]]; then
+        "$1_prompt_segment" "$0" "$2" "240" "$DEFAULT_COLOR" "$version_and_gemset" 'RUBY_ICON'
+      fi
+    fi
+  fi
+}
+
 prompt_caws() {
   local aws_region=`aws configure get region`
   local aws_profile="${AWS_PROFILE:-$AWS_DEFAULT_PROFILE} (${AWS_DEFAULT_REGION:-$aws_region})"
@@ -98,12 +112,12 @@ POWERLEVEL9K_NVM_FOREGROUND="000"
 POWERLEVEL9K_NODE_ICON=$'\uE718'
 POWERLEVEL9K_AWS_BACKGROUND="208"
 POWERLEVEL9K_CAWS_BACKGROUND="208"
-POWERLEVEL9K_RVM_BACKGROUND="160"
-POWERLEVEL9K_RVM_FOREGROUND="007"
+POWERLEVEL9K_CRVM_BACKGROUND="160"
+POWERLEVEL9K_CRVM_FOREGROUND="007"
 POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
 POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs canaconda kubecontext rvm nvm caws command_execution_time time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs canaconda kubecontext crvm nvm caws command_execution_time time)
 
 # NVM
 NVM_HOMEBREW=$(brew --prefix nvm)
