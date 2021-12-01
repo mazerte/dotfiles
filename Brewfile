@@ -8,6 +8,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "mazerte/software"
 tap "sambadevi/powerlevel9k"
+tap "weaveworks/tap"
 # Shell plugin manager
 brew "antibody"
 # Automatic configure script builder
@@ -84,6 +85,8 @@ brew "eth-p/software/bat-extras"
 brew "hidetatz/tap/kubecolor"
 # A badass zsh theme with more power than a normal earthling
 brew "sambadevi/powerlevel9k/powerlevel9k"
+# The official CLI for Amazon EKS
+brew "weaveworks/tap/eksctl"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Application launcher and productivity software

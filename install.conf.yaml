@@ -6,6 +6,7 @@
 
 - link:
     ~/.zshrc:
+    ~/.zsh:
     ~/.vimrc:
     ~/.vim:
     ~/.zshenv:

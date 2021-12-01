@@ -147,6 +147,7 @@ zstyle ':plugin:history-search-multi-word' clear-on-cancel 'yes'
 
 # Load "New" Completion System
 autoload -Uz compinit && compinit
+fpath=($fpath ~/.zsh/completion)
 
 # Run dotfiles installer
 alias dotinstall="~/.dotfiles/install"
