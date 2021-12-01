@@ -75,12 +75,40 @@ prompt_crvm() {
   fi
 }
 
+prompt_ckubecontext() {
+  local kubectl_version="$(kubectl version --client 2>/dev/null)"
+
+  if [[ -n "$kubectl_version" ]]; then
+    # Get the current Kuberenetes context
+    local cur_ctx=$(kubectl config view -o=jsonpath='{.current-context}')
+    if ! [ -z "$cur_ctx" ]; then
+      cur_namespace="$(kubectl config view -o=jsonpath="{.contexts[?(@.name==\"${cur_ctx}\")].context.namespace}")"
+      # If the namespace comes back empty set it default.
+      if [[ -z "${cur_namespace}" ]]; then
+        cur_namespace="default"
+      fi
+
+      local k8s_final_text=""
+
+      if [[ "$cur_ctx" == "$cur_namespace" ]]; then
+        # No reason to print out the same identificator twice
+        k8s_final_text="$cur_ctx"
+      else
+        k8s_final_text="$cur_ctx/$cur_namespace"
+      fi
+
+      "$1_prompt_segment" "$0" "$2" "magenta" "white" "$k8s_final_text" "KUBERNETES_ICON"
+    fi
+  fi
+}
+
 prompt_caws() {
   local aws_region=`aws configure get region`
-  local aws_profile="${AWS_PROFILE:-$AWS_DEFAULT_PROFILE} (${AWS_DEFAULT_REGION:-$aws_region})"
+  local _region="${AWS_DEFAULT_REGION:-$aws_region}"
+  local aws_profile="${AWS_PROFILE:-$AWS_DEFAULT_PROFILE}"
 
   if [[ -n "$aws_profile" ]]; then
-    "$1_prompt_segment" "$0" "$2" red white "$aws_profile" 'AWS_ICON'
+    "$1_prompt_segment" "$0" "$2" red white "$aws_profile ($_region)" 'AWS_ICON'
   fi
 }
 
@@ -117,7 +145,7 @@ POWERLEVEL9K_CRVM_FOREGROUND="007"
 POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
 POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs canaconda kubecontext crvm nvm caws command_execution_time time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs canaconda ckubecontext crvm nvm caws command_execution_time time)
 
 # NVM
 NVM_HOMEBREW=$(brew --prefix nvm)
