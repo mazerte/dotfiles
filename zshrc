@@ -32,6 +32,7 @@ alias ftrail='<<<${(F)fpath}'
 alias man=batman
 alias bbd="brew bundle dump --force --describe"
 alias lp='sudo lsof -i -P | grep LISTEN'
+alias kcc='kubectl config unset current-context'
 alias kdr='kubectl --dry-run=client -o yaml'
 alias kbg='_kbg(){ kubectl get "$@" -o yaml | bat -l yaml;  unset -f _kbg; }; _kbg'
 alias wkg='_wkg(){ watch --color kubecolor --force-colors get "$@";  unset -f _wkg; }; _wkg'

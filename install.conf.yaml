@@ -30,6 +30,9 @@
     ~/.ssh:
       path: /Volumes/Secured/config/ssh/dot
       force: true
+    ~/.kube/config:
+      path: /Volumes/Secured/config/kube/dot/config
+      force: true
     ~/Library/Preferences/helm:
       path: helm
       force: true
