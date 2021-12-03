@@ -1,0 +1,13 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    /etc/hosts:
+      path: hosts
+      force: true
+    /etc/resolver:
+      path: resolver
+      force: true

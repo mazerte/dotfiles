@@ -36,6 +36,12 @@
     ~/Library/Preferences/helm:
       path: helm
       force: true
+    /opt/homebrew/etc/dnsmasq.conf:
+      path: dnsmasq.conf
+      force: true
+    /etc/hosts:
+      path: hosts
+      force: true
 
 - create:
     - ~/Work
@@ -45,6 +51,9 @@
       stdout: true
       stderr: true
     - command: ./setup_zsh.zsh
+      stdout: true
+      stderr: true
+    - command: ./setup_certificats.zsh
       stdout: true
       stderr: true
     - command: ./setup_node.zsh

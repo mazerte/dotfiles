@@ -6,6 +6,7 @@ tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
+tap "homebrew/services"
 tap "mazerte/software"
 tap "sambadevi/powerlevel9k"
 tap "weaveworks/tap"
@@ -27,6 +28,8 @@ brew "bat"
 brew "cmake"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Lightweight DNS forwarder and DHCP server
+brew "dnsmasq"
 # Pack, ship and run any application as a lightweight container
 brew "docker", link: false
 # Modern replacement for 'ls'
@@ -35,6 +38,10 @@ brew "exa"
 brew "git"
 # Git extension for versioning large files
 brew "git-lfs"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
+# OpenType text shaping engine
+brew "harfbuzz"
 # Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
 # Kubernetes package manager
@@ -59,12 +66,16 @@ brew "mas"
 brew "nano"
 # HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
 brew "nginx"
+# Platform built on V8 to build network applications
+brew "node"
 # Manage multiple Node.js versions
 brew "nvm"
 # Tools for one-time password authentication systems
 brew "oath-toolkit"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
+# Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
+brew "prettier"
 # Safe, concurrent, practical language
 brew "rust"
 # Executes a program periodically, showing output fullscreen
