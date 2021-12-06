@@ -199,7 +199,7 @@ source /opt/homebrew/opt/powerlevel9k/powerlevel9k.zsh-theme
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # AWS
-export PATH="/opt/homebrew/opt/awscli@1/bin:$HOME/.aws/:$PATH"
+export PATH="/opt/homebrew/opt/awscli@1/bin:$PATH"
 export PATH="/usr/local/sessionmanagerplugin/bin/:$PATH"
 alias aws2='/opt/homebrew/opt/awscli@2/bin/aws'
 

@@ -17,5 +17,6 @@ rvm use 2.7
 
 # Install gems
 gem install rails
+gem install bashly
 
 

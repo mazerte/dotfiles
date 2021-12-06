@@ -1,3 +1,4 @@
+tap "benwebber/tunnelblickctl"
 tap "eth-p/software"
 tap "hidetatz/tap"
 tap "homebrew/bundle"
@@ -7,7 +8,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
-tap "mazerte/software"
+tap "mazerte/software", "git@github.com:mazerte/homebrew-software.git"
 tap "sambadevi/powerlevel9k"
 tap "weaveworks/tap"
 # Shell plugin manager
@@ -22,6 +23,8 @@ brew "aws-shell"
 brew "awscli"
 # Official Amazon AWS command-line interface
 brew "awscli@1"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Cross-platform make
@@ -29,7 +32,7 @@ brew "cmake"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Lightweight DNS forwarder and DHCP server
-brew "dnsmasq"
+brew "dnsmasq", restart_service: true
 # Pack, ship and run any application as a lightweight container
 brew "docker", link: false
 # Modern replacement for 'ls'
@@ -65,7 +68,7 @@ brew "mas"
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
 # HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
-brew "nginx"
+brew "nginx", restart_service: true
 # Platform built on V8 to build network applications
 brew "node"
 # Manage multiple Node.js versions
@@ -90,10 +93,16 @@ brew "yq"
 brew "zlib"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Command-line interface for Tunnelblick
+brew "benwebber/tunnelblickctl/tunnelblickctl"
 # Bash scripts that integrate bat with various command-line tools
 brew "eth-p/software/bat-extras"
 # Colorize your kubectl output
 brew "hidetatz/tap/kubecolor"
+# Open the AWS console with your CLI credentials where your needed to be!
+brew "mazerte/software/aws-console"
+# Easy CLI to create and manage vpn connection to your AWS VPC
+brew "mazerte/software/aws-vpn"
 # A badass zsh theme with more power than a normal earthling
 brew "sambadevi/powerlevel9k/powerlevel9k"
 # The official CLI for Amazon EKS
@@ -147,6 +156,8 @@ cask "spotify"
 cask "stats"
 # Unleash your creative genius and make waves across Twitch and YouTube.
 cask "stream-deck"
+# Free and open-source OpenVPN client
+cask "tunnelblick"
 # Disk encryption software focusing on security based on TrueCrypt
 cask "veracrypt"
 # Open-source code editor
