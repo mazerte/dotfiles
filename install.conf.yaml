@@ -65,6 +65,9 @@
     - command: ./setup_python.zsh
       stdout: true
       stderr: true
+    - command: ./setup_kubernetes.zsh
+      stdout: true
+      stderr: true
     - command: ./setup_macos.zsh
       stdout: true
       stderr: true

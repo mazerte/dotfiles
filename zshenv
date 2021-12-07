@@ -12,6 +12,7 @@ typeset -U path
 path=(
   "/opt/homebrew/Cellar/rust/1.56.1/bin"
   "/Applications/Docker.app/Contents/Resources/bin"
+  "$HOME/.krew/bin"
   $path
   "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
   "/opt/homebrew/bin"
