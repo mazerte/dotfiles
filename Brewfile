@@ -1,5 +1,6 @@
 tap "benwebber/tunnelblickctl"
 tap "eth-p/software"
+tap "hashicorp/tap"
 tap "hidetatz/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -81,6 +82,8 @@ brew "pinentry-mac"
 brew "prettier"
 # Safe, concurrent, practical language
 brew "rust"
+# Tool to build, change, and version infrastructure
+brew "terraform"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # JavaScript package manager

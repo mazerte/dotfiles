@@ -18,3 +18,5 @@ rust-lang.rust
 ms-azuretools.vscode-docker
 ms-kubernetes-tools.vscode-kubernetes-tools
 redhat.vscode-yaml
+hashicorp.terraform
+
