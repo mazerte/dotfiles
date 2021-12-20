@@ -14,6 +14,7 @@ __dock_item() {
 printf '%s' 'Setting up Dock icons...'
 defaults write com.apple.dock \
                persistent-apps -array "$(__dock_item /System/Applications/System\ Preferences.app)" \
+                                      "$(__dock_item /Applications/Slack.app)" \
                                       "$(__dock_item /Applications/VeraCrypt.app)" \
                                       "$(__dock_item /Applications/1Password\ 7.app)" \
                                       "$(__dock_item /Applications/iTerm.app)" \
