@@ -33,13 +33,88 @@
 * `./initialize`
 * When is finish, login to 1Password using the OR Code generate by the mobile app (Settings > Accounts > User > Configure another device)
 * Login to Dropbox (You may have to remove an account before, don't setup backup features). Wait the sync to complete.
-* Open VeraCrypt and mount the secure volume stored in Dropbox folder:
-  * `System Extension Blocked`, click `Open Security Preferences`, unlock and click `Enable system extensions` and then `Shut down`
+* Open VeraCrypt and try to mount the secure volume stored in Dropbox folder:
+  * `System Extension Blocked`, click `Open Security Preferences`, unlock and click `Enable system extensions` and then `Shut down`. **Hold the power button at startup to open the macOS Recovery app**
+  * Select your user and type your user password
+  * Click unlock for `Macintosh HD` drive. Re-use the same password
+  * Click `Security Policy`, choose `Reduced Security` and click `Allow user management of kernel extensions from identified developers`
+  * Click `Ok` and type your password. (~1min)
+  * Restart the computer
+  * Preferences Panel should be open on `Security & Privacy`, unlock and allow `Bengamin Fleischer`.
+  * Type your password and restart
+  * Finally try to mount the secure volume again
 
 ### Configure the whole system
 
 * `./install` (maybe run it twice ???), You will ask to type your user password a lot of time
+* `id_github_rsa` password is stored in 1Password under `github.com` > `ssh`
+* Login to Autodesk Fusion360 (password stored in 1Password)
 * If `GPG Mail Monterey Activator` ask to Enable click `Not Now`
+* When installation is finished, restart the computer
+* Run `mackup restore` through `iTerm2` in `~/.dotfiles`. Consider doing a `mackup restore --dry-run --verbose` first.
+
+### Manual installation
+
+* Atem MINI: (https://www.blackmagicdesign.com/support/family/atem-live-production-switchers and choose ATEM Switchers last version)
+
+## Setup
+
+### Alfred
+
+* Open `Alfred` and click `Begin Setup`
+* Add the licence from 1Password
+* Continue without migration
+* On `macOS Persissions`, click all buttons and `Restart Alfred`
+* In `Alfred` > Advanced `Set preferences folder` and choose the `dotfiles` folder in Dropbox. Restart Alfred
+
+### Chrome
+
+* Open `Chrome` and set it as default browser
+* Login in
+* Setup `Turn on Sync`
+
+### Slack
+
+Open `Slack` and add these accounts manually
+
+* mazerte
+* amzn-aws
+* aircall
+* datadome
+* ybcdata
+* huggingface
+
+### Reeder
+
+TODO
+
+### Licenced or Log-on Software
+
+* Aurora HDR
+* Charles Proxy
+* Docker
+* DxO PureRaw
+* Luminar AI
+* Optix2
+* Spotify
+* Zoom
+
+### Software to open
+
+* Companion
+* Stats
+* Giphy
+* ScreenBrush
+* Snappy
+
+### Bartender
+
+Open `Bartender` app and setup permissions
+
+### Last steps
+
+* Change screen resolution
+* Change screen wallpaper
 
 ## Troubleshooting
 
@@ -60,7 +135,8 @@ sudo killall -1 installd
 * `displaylink failled` because Rosetta2 must be installed
 * Remove `iMovie`, `Garage Band`, `Pages`, `Keynote` and `Numbers` from Brewfile
 * `autodesk-fusion360` install due to bad CPU type ???
+* kubectl config seems to be store in mackup dropbox folder and in secure volume, keep only secure
 
 ## Ideas
 
-Maybe install first `VeraCrypt`, `Dropbox` and `1Password` manually or through a specific script before the install. This script could also install Homebrew and setup the `PATH`. Also Install Rosetta2
+Maybe install first `VeraCrypt`, `Dropbox` and `1Password` manually or through a specific script before the install. This script could also install Homebrew and setup the `PATH`. Also install Rosetta2
