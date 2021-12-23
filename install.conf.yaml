@@ -2,7 +2,7 @@
     link:
       relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
     ~/.zshrc:
@@ -39,12 +39,12 @@
     /opt/homebrew/etc/dnsmasq.conf:
       path: dnsmasq.conf
       force: true
-    /etc/hosts:
-      path: hosts
-      force: true
 
 - create:
-    - ~/Work
+    - ~/work
+    - ~/Pictures/RAW
+    - ~/Pictures/DxO
+    - ~/Pictures/Final
 
 - shell:
     - command: ./setup_homebrew.zsh

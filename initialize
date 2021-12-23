@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+export PATH="/opt/homebrew/bin:$PATH"
+
+# Install Rosetta2
+/usr/sbin/softwareupdate --install-rosetta --agree-to-license
+
+# Install Software
+brew install 1Password
+brew install Dropbox
+brew install VeraCrypt
+
+# Create locate database
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist

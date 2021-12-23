@@ -55,7 +55,7 @@ defaults write com.apple.finder ShowPathbar -bool true
 
 # Finder > Preferences > General > New Finder windows show:
 defaults write com.apple.finder NewWindowTarget -string 'PfLo'
-defaults write com.apple.finder NewWindowTargetPath -string "file://$HOME/.dotfiles"
+defaults write com.apple.finder NewWindowTargetPath -string "file://$HOME"
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -164,9 +164,24 @@ defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
 defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$HOME/.dotfiles/iterm2"
 defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile -bool true
 
-
+# Dock
 for app in "Dock" \
 	"Finder"; do
 	killall "${app}" &> /dev/null
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
+
+# Finder sidebar
+ITEMS=`mysides list`
+while read -r line; do
+  ITEM=`echo "$line" | sed 's/^\([a-zA-Z0-9]*\) -> \(.*\)$/\1/'`
+  mysides remove $ITEM
+done <<< "$ITEMS"
+
+mysides add Home file://$HOME/
+mysides add Applications file:///Applications/
+mysides add Desktop file://$HOME/Desktop/
+mysides add Dropbox file://$HOME/Dropbox/
+mysides add Documents file://$HOME/Documents/
+mysides add Downloads file://$HOME/Downloads/
+mysides add Pictures file://$HOME/Pictures/

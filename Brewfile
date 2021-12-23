@@ -151,6 +151,7 @@ cask "luminar-ai"
 cask "macfuse"
 # Minimal installer for conda specific to conda-forge
 cask "miniforge"
+cask "mysides"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
 # Cull 1000 photos in 60 seconds.
@@ -173,12 +174,7 @@ cask "veracrypt"
 cask "visual-studio-code"
 # Video communication and virtual meeting platform
 cask "zoom"
-mas "GarageBand", id: 682658836
 mas "GIPHY CAPTURE", id: 668208984
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
 mas "Reeder", id: 1449412482
 mas "ScreenBrush", id: 1233965871
 mas "Slack", id: 803453959
