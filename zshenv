@@ -17,6 +17,9 @@ export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$PATH:/opt/homebrew/sbin"
 export PATH="$PATH:/usr/local/bin"
 
+# RVM
+source ~/.rvm/scripts/rvm
+
 # RSVM (Rust)
 [[ -s ~/.rsvm/rsvm.sh ]] && . ~/.rsvm/rsvm.sh
 

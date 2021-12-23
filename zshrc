@@ -182,9 +182,6 @@ load-nvmrc() {
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
-# RVM
-source ~/.rvm/scripts/rvm
-
 source <(antibody init)
 antibody bundle < "$DOTFILES/antibody_plugins"
 
