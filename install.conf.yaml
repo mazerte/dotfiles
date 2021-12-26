@@ -27,6 +27,7 @@
       path: /Volumes/Secured/config/gnupg/dot
       force: true
     ~/.rvmrc:
+      force: true
     ~/.ssh:
       path: /Volumes/Secured/config/ssh/dot
       force: true

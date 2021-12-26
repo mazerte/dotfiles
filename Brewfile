@@ -145,6 +145,8 @@ cask "gpg-suite"
 cask "insomnia"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# Software for Logitech devices
+cask "logitech-options"
 # AI photo editing. Awesome. Faster.
 cask "luminar-ai"
 # File system integration

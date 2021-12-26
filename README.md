@@ -1,6 +1,6 @@
-# Installation instruction
+# Installation instruction (~180min)
 
-## Erase and Reinstall macOS Monterey
+## Erase and Reinstall macOS Monterey (~40min)
 
 - Restart your Mac and Hold to power button to start the Recovery Mode
 - When the Mac restart choose Options
@@ -23,7 +23,7 @@
 
 ## Install dotfiles repository
 
-### Pre-configuration
+### Pre-configuration (~25min)
 
 - Open Safari on login to Github (1Password + Google Authenticator)
 - Create a [new Personal access token](https://github.com/settings/tokens) in Github to use HTTPS repositories
@@ -44,7 +44,7 @@
   - Type your password and restart
   - Finally try to mount the secure volume again
 
-### Configure the whole system
+### Configure the whole system (~100min)
 
 - `./install`, You will ask to type your user password a lot of time
 - `id_github_rsa` password is stored in 1Password under `github.com` > `ssh`
@@ -53,11 +53,11 @@
 - When installation is finished, restart the computer
 - Run `mackup restore` through `iTerm2` in `~/.dotfiles`. Consider doing a `mackup restore --dry-run --verbose` first.
 
-### Manual installation
+### Manual installation (~5min)
 
 - Atem MINI: (https://www.blackmagicdesign.com/support/family/atem-live-production-switchers and choose ATEM Switchers last version)
 
-## Setup
+## Setup (~20min)
 
 ### Alfred
 
