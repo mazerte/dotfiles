@@ -42,6 +42,8 @@ brew "exa"
 brew "git"
 # Git extension for versioning large files
 brew "git-lfs"
+# Git Remote Helper to interact with AWS CodeCommit
+brew "git-remote-codecommit"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
 # Generate introspection data for GObject libraries
