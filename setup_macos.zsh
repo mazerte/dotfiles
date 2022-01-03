@@ -185,3 +185,4 @@ mysides add Dropbox file://$HOME/Dropbox/
 mysides add Documents file://$HOME/Documents/
 mysides add Downloads file://$HOME/Downloads/
 mysides add Pictures file://$HOME/Pictures/
+mysides add Work file://$HOME/work/
