@@ -102,6 +102,7 @@ TODO
 ### Software to open
 
 - Companion
+- Display Link Manager
 - Stats
 - Giphy
 - ScreenBrush
