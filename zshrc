@@ -34,6 +34,7 @@ alias bbd="brew bundle dump --force --describe"
 alias lp='sudo lsof -i -P | grep LISTEN'
 alias kcc='kubectl config unset current-context'
 alias krc='kubectl config rename-context $(kubectl config current-context)'
+alias eksuk='_eksuk(){ aws eks update-kubeconfig --name $1; kubectl config rename-context $(kubectl config current-context) $1 }; _eksuk'
 alias kdr='kubectl --dry-run=client -o yaml'
 alias kbg='_kbg(){ kubectl get "$@" -o yaml | bat -l yaml;  unset -f _kbg; }; _kbg'
 alias wkg='_wkg(){ watch --color kubecolor --force-colors get "$@";  unset -f _wkg; }; _wkg'
