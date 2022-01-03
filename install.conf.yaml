@@ -26,6 +26,9 @@
     ~/.gnupg:
       path: /Volumes/Secured/config/gnupg/dot
       force: true
+    ~/.terraform.d/credentials.tfrc.json:
+      path: /Volumes/Secured/config/terraform/dot/credentials.tfrc.json
+      force: true
     ~/.rvmrc:
       force: true
     ~/.ssh:
