@@ -2,6 +2,7 @@ ohmyzsh/ohmyzsh
 ohmyzsh/ohmyzsh path:plugins/nvm
 ohmyzsh/ohmyzsh path:plugins/aws
 ohmyzsh/ohmyzsh path:plugins/kubectl
+ohmyzsh/ohmyzsh path:plugins/terraform
 
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions

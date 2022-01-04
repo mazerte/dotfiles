@@ -124,6 +124,13 @@ prompt_caws() {
   fi
 }
 
+prompt_terraform() {
+  local tfp=`tf_prompt_info | sed 's/[][]//g'`
+  if [[ -n "$tfp" ]]; then
+    "$1_prompt_segment" "$0" "$2" red white "\uF0EE  $tfp"
+  fi
+}
+
 function asr() {
   if [[ -z "$1" ]]; then
     unset AWS_DEFAULT_REGION
@@ -157,7 +164,7 @@ POWERLEVEL9K_CRVM_FOREGROUND="007"
 POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
 POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs canaconda ckubecontext crvm nvm caws command_execution_time time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs canaconda terraform ckubecontext crvm nvm caws command_execution_time time)
 
 # NVM
 NVM_HOMEBREW=$(brew --prefix nvm)
@@ -192,6 +199,7 @@ plugins=(
   nvm
   aws
   kubectl
+  terraform
 )
 ZSH=$(antibody path ohmyzsh/ohmyzsh)
 source /opt/homebrew/opt/powerlevel9k/powerlevel9k.zsh-theme
