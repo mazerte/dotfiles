@@ -110,7 +110,7 @@ prompt_ckubecontext() {
         k8s_final_text="$cur_ctx/$cur_namespace"
       fi
 
-      "$1_prompt_segment" "$0" "$2" "magenta" "white" "$k8s_final_text" "KUBERNETES_ICON"
+      "$1_prompt_segment" "$0" "$2" "27" "white" "$k8s_final_text" "KUBERNETES_ICON"
     fi
   fi
 }
@@ -128,7 +128,7 @@ prompt_caws() {
 prompt_terraform() {
   local tfp=`tf_prompt_info | sed 's/[][]//g'`
   if [[ -n "$tfp" ]]; then
-    "$1_prompt_segment" "$0" "$2" red white "\uF0EE  $tfp"
+    "$1_prompt_segment" "$0" "$2" "56" white "\uF0EE  $tfp"
   fi
 }
 
