@@ -43,6 +43,7 @@ alias kassh='_kassh(){ aws ssm start-session --target $(kubectl get node "$@" -o
 alias ohmyzsh='_ohmyzsh(){ open "https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/$@";  unset -f _ohmyzsh; }; _ohmyzsh'
 alias s3cat='_s3cat(){ aws s3 cp "$1" -;  unset -f _s3cat; }; _s3cat'
 alias tfaa='terraform apply -auto-approve'
+alias kpssh='_kpssh(){ k exec -ti "$1" -- /bin/bash;  unset -f _kpssh; }; _kpssh'
 
 # Write Handy Functions
 function mkcd() {
