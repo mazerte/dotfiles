@@ -20,5 +20,6 @@ ms-kubernetes-tools.vscode-kubernetes-tools
 redhat.vscode-yaml
 hashicorp.terraform
 golang.go
+keesschollaart.vscode-home-assistant
 
 
