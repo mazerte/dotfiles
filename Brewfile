@@ -131,6 +131,8 @@ cask "bartender"
 cask "charles"
 # Bitfocus Companion enables the reasonably priced Elgato Streamdeck to be a professional shotbox surface for an increasing amount of different presentation switchers, video playback software and broadcast equipment.
 cask "companion"
+# Voice and text chat software
+cask "discord"
 # Drivers for DisplayLink docks, adapters and monitors
 cask "displaylink"
 # App to build and share containerized applications and microservices
