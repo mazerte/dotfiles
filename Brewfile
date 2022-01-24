@@ -18,6 +18,8 @@ brew "antibody"
 brew "autoconf"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
+# Command-line interface for SQLite
+brew "sqlite"
 # Integrated shell for working with the AWS CLI
 brew "aws-shell"
 # Official Amazon AWS command-line interface
