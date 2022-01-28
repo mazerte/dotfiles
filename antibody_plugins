@@ -7,6 +7,8 @@ ohmyzsh/ohmyzsh path:plugins/terraform
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 
+romkatv/powerlevel10k
+
 zdharma-continuum/history-search-multi-word
 zdharma-continuum/fast-syntax-highlighting
 
