@@ -16,7 +16,7 @@ install-linux-packages() {
   sudo apt-get install -y lsof whois traceroute
   sudo apt-get install -y net-tools iputils-tracepath dnsutils
   sudo apt-get install -y netcat-openbsd
-  sudo apt-get install -y exa jq vim
+  sudo apt-get install -y exa jq vim gnupg
   sudo apt-get install -y zsh-theme-powerlevel9k
   sudo apt-get install -y bat kubecolor
 }
