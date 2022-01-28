@@ -241,8 +241,6 @@ plugins=(
   terraform
 )
 ZSH=$(antibody path ohmyzsh/ohmyzsh)
-source /opt/homebrew/opt/powerlevel9k/powerlevel9k.zsh-theme
-
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 if exists aws && exists brew; then
