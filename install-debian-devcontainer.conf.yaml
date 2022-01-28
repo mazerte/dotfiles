@@ -6,6 +6,8 @@
 
 - link:
     ~/.zshrc:
+      path: zshrc
+      force: true
     ~/.zsh:
     ~/.vimrc:
     ~/.vim:

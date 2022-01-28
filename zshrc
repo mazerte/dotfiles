@@ -84,8 +84,8 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # Customize Prompt(s)
 export TERM="xterm-256color"
 
-if exists conda; then
-  prompt_canaconda() {
+prompt_canaconda() {
+  if exists conda; then
     # Depending on the conda version, either might be set. This
     # variant works even if both are set.
     local _path=$CONDA_ENV_PATH$CONDA_PREFIX
@@ -96,11 +96,11 @@ if exists conda; then
       set_default POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER ")"
       "$1_prompt_segment" "$0" "$2" "blue" "$DEFAULT_COLOR" "$POWERLEVEL9K_ANACONDA_LEFT_DELIMITER$(basename $_path)$POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER" 'PYTHON_ICON'
     fi
-  }
-fi
+  fi
+}
 
-if exists rvm; then
-  prompt_crvm() {
+prompt_crvm() {
+  if exists rvm; then
     local _rvm_current=`rvm current`
     local _rvm_default=`rvm alias show default`
     if ! [ "$_rvm_current" = "$_rvm_default" ]; then
@@ -112,11 +112,11 @@ if exists rvm; then
         fi
       fi
     fi
-  }
-fi
+  fi
+}
 
-if exists kubectl; then
-  prompt_ckubecontext() {
+prompt_ckubecontext() {
+  if exists kubectl; then
     local kubectl_version="$(kubectl version --client 2>/dev/null)"
 
     if [[ -n "$kubectl_version" ]]; then
@@ -141,11 +141,11 @@ if exists kubectl; then
         "$1_prompt_segment" "$0" "$2" "27" "white" "$k8s_final_text" "KUBERNETES_ICON"
       fi
     fi
-  }
-fi
+  fi
+}
 
-if exists aws; then
-  prompt_caws() {
+prompt_caws() {
+  if exists aws; then
     local aws_region=`aws configure get region`
     local _region="${AWS_DEFAULT_REGION:-$aws_region}"
     local aws_profile="${AWS_PROFILE:-$AWS_DEFAULT_PROFILE}"
@@ -153,9 +153,11 @@ if exists aws; then
     if [[ -n "$aws_profile" ]]; then
       "$1_prompt_segment" "$0" "$2" red white "$aws_profile ($_region)" 'AWS_ICON'
     fi
-  }
+  fi
+}
 
-  function asr() {
+function asr() {
+  if exists aws; then
     if [[ -z "$1" ]]; then
       unset AWS_DEFAULT_REGION
       echo AWS region cleared.
@@ -163,17 +165,17 @@ if exists aws; then
     fi
 
     export AWS_DEFAULT_REGION=$1
-  }
-fi
+  fi
+}
 
-if exists terraform; then
-  prompt_terraform() {
+prompt_terraform() {
+  if exists terraform; then
     local tfp=`tf_prompt_info | sed 's/[][]//g'`
     if [[ -n "$tfp" ]]; then
       "$1_prompt_segment" "$0" "$2" "56" white "\uF0EE  $tfp"
     fi
-  }
-fi
+  fi
+}
 
 # Disable completion directory permission verification
 ZSH_DISABLE_COMPFIX=true

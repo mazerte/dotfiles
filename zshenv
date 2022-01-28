@@ -7,6 +7,25 @@ function exists() {
   # command -v $1 1>/dev/null 2>/dev/null
 }
 
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  export CURRENT_OSTYPE="linux"
+  export CURRENT_ARCH=$(/usr/bin/arch)
+  export CURRENT_LINUX_OS=$(egrep '^ID=' /etc/os-release | cut -d "=" -f 2)
+  export CURRENT_VERSION=$(egrep '^VERSION_ID=' /etc/os-release | cut -d "=" -f 2)
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  export CURRENT_OSTYPE="macos"
+  export CURRENT_ARCH=$(/usr/bin/arch)
+  export CURRENT_VERSION=$(sw_vers -productVersion)
+else
+  export CURRENT_OSTYPE="unknown"
+fi
+
+if [ -f /.dockerenv ]; then
+  export CURRENT_IS_DOCKER=1
+else
+  export CURRENT_IS_DOCKER=0
+fi
+
 if [[ "$CURRENT_OSTYPE" == "macos" ]]; then
   export HOMEBREW_CASK_OPTS=x"--no-quarantine --no-binaries"
 fi
