@@ -18,7 +18,7 @@ install-linux-packages() {
   sudo apt-get install -y netcat-openbsd
   sudo apt-get install -y exa jq vim
   sudo apt-get install -y zsh-theme-powerlevel9k
-  sudo apt-get install -y rust-bat kubecolor
+  sudo apt-get install -y bat kubecolor
 }
 
 install-antibody(){
