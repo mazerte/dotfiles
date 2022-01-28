@@ -41,7 +41,16 @@ fi
 if exists aws; then
   # AWS
   alias s3cat='_s3cat(){ aws s3 cp "$1" -;  unset -f _s3cat; }; _s3cat'
-  alias assh='_assh(){ aws ssm start-session --target $(aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=\"*$@*\"" | jq -r  ".Reservations[0].Instances[0].InstanceId");  unset -f _assh; }; _assh'
+  alias ec2id='_ec2id(){ aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=\"*$@*\"" | jq -r  ".Reservations[0].Instances[0].InstanceId";  unset -f _ec2id; }; _ec2id'
+  alias assh='_assh(){ aws ssm start-session --target $(ec2id $1);  unset -f _assh; }; _assh'
+  function atunnel() {
+    local instance=`ec2id $1`
+    local params="{\"portNumber\": [\"$2\"], \"localPortNumber\": [\"$3\"]}"
+    aws ssm start-session \
+      --target $instance \
+      --document-name AWS-StartPortForwardingSession \
+      --parameters $params
+  }
 fi
 
 if exists kubectl; then
