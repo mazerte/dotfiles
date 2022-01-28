@@ -86,22 +86,24 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export TERM="xterm-256color"
 
 prompt_canaconda () {
-  local msg
-  if _p9k_python_version
-  then
-    P9K_ANACONDA_PYTHON_VERSION=$_p9k__ret
-    if (( _POWERLEVEL9K_ANACONDA_SHOW_PYTHON_VERSION ))
+  if exists rvm; then
+    local msg
+    if _p9k_python_version
     then
-            msg="${P9K_ANACONDA_PYTHON_VERSION//\%/%%} "
+      P9K_ANACONDA_PYTHON_VERSION=$_p9k__ret
+      if (( _POWERLEVEL9K_ANACONDA_SHOW_PYTHON_VERSION ))
+      then
+              msg="${P9K_ANACONDA_PYTHON_VERSION//\%/%%} "
+      fi
+    else
+      unset P9K_ANACONDA_PYTHON_VERSION
     fi
-  else
-    unset P9K_ANACONDA_PYTHON_VERSION
-  fi
-  local p=${CONDA_PREFIX:-$CONDA_ENV_PATH}
-  local _env=`basename $p`
-  if ! [ -z "$p" ] | [ "$_env" = "base" ]; then
-      msg+="$_POWERLEVEL9K_ANACONDA_LEFT_DELIMITER$_env$_POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER"
-      _p9k_prompt_segment "$0" "blue" "$_p9k_color1" 'PYTHON_ICON' 0 '' "$msg"
+    local p=${CONDA_PREFIX:-$CONDA_ENV_PATH}
+    local _env=`basename $p`
+    if ! [ -z "$p" ] | [ "$_env" = "base" ]; then
+        msg+="$_POWERLEVEL9K_ANACONDA_LEFT_DELIMITER$_env$_POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER"
+        _p9k_prompt_segment "$0" "blue" "$_p9k_color1" 'PYTHON_ICON' 0 '' "$msg"
+    fi
   fi
 }
 
