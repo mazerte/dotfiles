@@ -205,7 +205,6 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs canaconda terraform c
 
 if exists nvm; then
   # NVM
-  NVM_HOMEBREW=$(brew --prefix nvm)
   # https://github.com/nvm-sh/nvm
   # place this after nvm initialization!
   autoload -U add-zsh-hook

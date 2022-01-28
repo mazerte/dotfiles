@@ -30,7 +30,7 @@ if [[ "$CURRENT_OSTYPE" == "macos" ]]; then
   export HOMEBREW_CASK_OPTS=x"--no-quarantine --no-binaries"
 fi
 
-if exists terraform; then
+if [[ "$CURRENT_OSTYPE" == "macos" ]] && exists nvm; then
   # NVM
   export NVM_DIR="$HOME/.nvm"
     [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
