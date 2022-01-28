@@ -1,4 +1,7 @@
 #!/usr/bin/env zsh
+if ! command -v kubectl; then
+  exit 0
+fi
 
 echo "\n<<< Starting Kubernetes Setup >>>\n"
 

@@ -1,8 +1,5 @@
-[user]
-	name = Mathieu Desvé
-	email = mathieu.desve@gmail.com
-	signingkey = AE0E70B3846F87F7
-
+# git update-index --assume-unchanged gitconfig
+# git update-index --no-assume-unchanged gitconfig
 [alias]
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits.

@@ -2,16 +2,45 @@
 
 set -e
 
-CONFIG="install.conf.yaml"
-SUDO_CONFIG="install-sudo.conf.yaml"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  export CURRENT_OSTYPE="linux"
+  export CURRENT_ARCH=$(/usr/bin/arch)
+  export CURRENT_LINUX_OS=$(egrep '^ID=' /etc/os-release | cut -d "=" -f 2)
+  export CURRENT_VERSION=$(egrep '^VERSION_ID=' /etc/os-release | cut -d "=" -f 2)
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  export CURRENT_OSTYPE="macos"
+  export CURRENT_ARCH=$(/usr/bin/arch)
+  export CURRENT_VERSION=$(sw_vers -productVersion)
+else
+  export CURRENT_OSTYPE="unknown"
+fi
+
+if [ -f /.dockerenv ]; then
+  export CURRENT_IS_DOCKER=1
+else
+  export CURRENT_IS_DOCKER=0
+fi
+
 DOTBOT_DIR="dotbot"
 
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [ $CURRENT_IS_DOCKER -eq 1 ] \
+  && [[ "$CURRENT_OSTYPE" == "linux" ]] \
+  && [[ "$CURRENT_LINUX_OS" == "debian" ]]; then
+  "$BASEDIR/setup_debian.sh"
+  CONFIG="install-debian-devcontainer.conf.yaml"
+else
+  CONFIG="install.conf.yaml"
+  SUDO_CONFIG="install-sudo.conf.yaml"
+fi
 
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
-sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${SUDO_CONFIG}" "${@}"
+if [ -z $SUDO_CONFIG ]; then
+  sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${SUDO_CONFIG}" "${@}"
+fi

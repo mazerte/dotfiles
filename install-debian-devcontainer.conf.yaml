@@ -1,0 +1,26 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ["~"]
+
+- link:
+    ~/.zshrc:
+    ~/.zsh:
+    ~/.vimrc:
+    ~/.vim:
+    ~/.zshenv:
+    ~/.gitattributes:
+    ~/.gitignore:
+    ~/.gitconfig:
+    ~/.nanorc:
+    ~/.config/bat:
+      create: true
+      path: config/bat
+    ~/.editorconfig:
+    ~/.curlrc:
+
+- shell:
+    - command: ./setup_kubernetes.zsh
+      stdout: true
+      stderr: true
