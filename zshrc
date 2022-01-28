@@ -47,6 +47,7 @@ if exists kubectl; then
   # Kube
   alias kubectl='kubecolor'
   alias kcc='kubectl config unset current-context'
+  alias kcscc='kubectl config set current-context'
   alias krc='kubectl config rename-context $(kubectl config current-context)'
   alias kdr='kubectl --dry-run=client -o yaml'
   alias kbg='_kbg(){ kubectl get "$@" -o yaml | bat -l yaml;  unset -f _kbg; }; _kbg'
