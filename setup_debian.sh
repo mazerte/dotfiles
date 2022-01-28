@@ -13,7 +13,7 @@ install-linux-packages() {
   sudo apt-get install -y apt-file aptitude deborphan
   sudo apt-get install -y build-essential libreadline-dev
   sudo apt-get install -y zsh curl wget git tree unzip ncdu tmux trash-cli
-  sudo apt-get install -y lsof whois traceroute
+  sudo apt-get install -y lsof whois traceroute lshw
   sudo apt-get install -y net-tools iputils-tracepath dnsutils
   sudo apt-get install -y netcat-openbsd
   sudo apt-get install -y exa jq vim gnupg
