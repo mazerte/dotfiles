@@ -85,18 +85,23 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 # Customize Prompt(s)
 export TERM="xterm-256color"
 
-prompt_canaconda() {
-  if exists conda; then
-    # Depending on the conda version, either might be set. This
-    # variant works even if both are set.
-    local _path=$CONDA_ENV_PATH$CONDA_PREFIX
-    local _env=`basename $_path`
-    if ! [ -z "$_path" ] | [ "$_env" = "base" ]; then
-      # config - can be overwritten in users' zshrc file.
-      set_default POWERLEVEL9K_ANACONDA_LEFT_DELIMITER "("
-      set_default POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER ")"
-      "$1_prompt_segment" "$0" "$2" "blue" "$DEFAULT_COLOR" "$POWERLEVEL9K_ANACONDA_LEFT_DELIMITER$(basename $_path)$POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER" 'PYTHON_ICON'
+prompt_canaconda () {
+  local msg
+  if _p9k_python_version
+  then
+    P9K_ANACONDA_PYTHON_VERSION=$_p9k__ret
+    if (( _POWERLEVEL9K_ANACONDA_SHOW_PYTHON_VERSION ))
+    then
+            msg="${P9K_ANACONDA_PYTHON_VERSION//\%/%%} "
     fi
+  else
+    unset P9K_ANACONDA_PYTHON_VERSION
+  fi
+  local p=${CONDA_PREFIX:-$CONDA_ENV_PATH}
+  local _env=`basename $p`
+  if ! [ -z "$p" ] | [ "$_env" = "base" ]; then
+      msg+="$_POWERLEVEL9K_ANACONDA_LEFT_DELIMITER$_env$_POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER"
+      _p9k_prompt_segment "$0" "blue" "$_p9k_color1" 'PYTHON_ICON' 0 '' "$msg"
   fi
 }
 
@@ -109,7 +114,7 @@ prompt_crvm() {
         local version_and_gemset=${$(rvm-prompt v p)/ruby-}
 
         if [[ -n "$version_and_gemset" ]]; then
-          "$1_prompt_segment" "$0" "$2" "240" "$DEFAULT_COLOR" "$version_and_gemset" 'RUBY_ICON'
+        _p9k_prompt_segment "$0$state" "240" "$DEFAULT_COLOR" 'RUBY_ICON' 0 '' "$version_and_gemset"
         fi
       fi
     fi
@@ -139,7 +144,7 @@ prompt_ckubecontext() {
           k8s_final_text="$cur_ctx/$cur_namespace"
         fi
 
-        "$1_prompt_segment" "$0" "$2" "27" "white" "$k8s_final_text" "KUBERNETES_ICON"
+        _p9k_prompt_segment "$0$state" "27" white 'KUBERNETES_ICON' 0 '' "$k8s_final_text"
       fi
     fi
   fi
@@ -152,7 +157,7 @@ prompt_caws() {
     local aws_profile="${AWS_PROFILE:-$AWS_DEFAULT_PROFILE}"
 
     if [[ -n "$aws_profile" ]]; then
-      "$1_prompt_segment" "$0" "$2" red white "$aws_profile ($_region)" 'AWS_ICON'
+      _p9k_prompt_segment "$0$state" red white 'AWS_ICON' 0 '' "$aws_profile ($_region)"
     fi
   fi
 }
@@ -169,11 +174,11 @@ function asr() {
   fi
 }
 
-prompt_terraform() {
+prompt_cterraform() {
   if exists terraform; then
     local tfp=`tf_prompt_info | sed 's/[][]//g'`
     if [[ -n "$tfp" ]]; then
-      "$1_prompt_segment" "$0" "$2" "56" white "\uF0EE  $tfp"
+      _p9k_prompt_segment "$0$state" "56" white '' 0 '' "$tfp"
     fi
   fi
 }
@@ -201,7 +206,7 @@ POWERLEVEL9K_CRVM_FOREGROUND="007"
 POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
 POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs canaconda terraform ckubecontext crvm nvm caws command_execution_time time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs canaconda cterraform ckubecontext crvm nvm caws command_execution_time time)
 
 
 if exists nvm; then
@@ -250,7 +255,7 @@ if exists aws && exists brew; then
   alias aws2='/opt/homebrew/opt/awscli@2/bin/aws'
 fi
 
-if exists conda; then
+if [ -f /opt/homebrew/Caskroom/miniforge/base/bin/conda ]; then
   # Conda
   # >>> conda initialize >>>
   # !! Contents within this block are managed by 'conda init' !!
