@@ -17,9 +17,9 @@
   "mounts": [
     "source=${localEnv:HOME}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.gnupg,target=/home/vscode/.gnupg,type=bind,consistency=cached",
-    "source=${localEnv:HOME}/.terraform.d/credentials.tfrc.json,target=/home/vscode/.terraform.d/credentials.tfrc.json,type=bind,consistency=cached",
-    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
-    "source=${localEnv:HOME}/.kube/config,target=/home/vscode/.kube/config,type=bind,consistency=cached"
+    // "source=${localEnv:HOME}/.terraform.d/credentials.tfrc.json,target=/home/vscode/.terraform.d/credentials.tfrc.json,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+    // "source=${localEnv:HOME}/.kube/config,target=/home/vscode/.kube/config,type=bind,consistency=cached"
   ],
 
   // Set *default* container specific settings.json values on container create.
