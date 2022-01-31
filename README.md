@@ -25,10 +25,7 @@
 
 ### Pre-configuration (~25min)
 
-- Open Safari on login to Github (1Password + Google Authenticator)
-- Create a [new Personal access token](https://github.com/settings/tokens) in Github to use HTTPS repositories
-- Open the Terminal
-- `git clone https://github.com/mazerte/dotfiles.git ~/.dotfiles`. **Use your Personal access token instead of your password as password**. We'll start with `https` but switch to `ssh` after everything is installed.
+- `git clone https://github.com/mazerte/dotfiles.git ~/.dotfiles`.
 - `cd ~/.dotfiles`
 - `./initialize`
 - When is finish, login to 1Password using the OR Code generate by the mobile app (Settings > Accounts > User > Configure another device)
@@ -75,14 +72,7 @@
 
 ### Slack
 
-Open `Slack` and add these accounts manually
-
-- mazerte
-- amzn-aws
-- aircall
-- datadome
-- ybcdata
-- huggingface
+Open `Slack` and add accounts manually (list on 1password)
 
 ### Reeder
 
