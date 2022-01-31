@@ -185,9 +185,17 @@ prompt_ckubecontext() {
 
 prompt_caws() {
   if exists aws; then
-    local aws_region=`aws configure get region`
-    local _region="${AWS_DEFAULT_REGION:-$aws_region}"
-    local aws_profile="${AWS_PROFILE:-$AWS_DEFAULT_PROFILE}"
+    # https://serverfault.com/questions/462903/how-to-know-if-a-machine-is-an-ec2-instance
+    if [ -f /sys/hypervisor/uuid ] && [ `head -c 3 /sys/hypervisor/uuid` == "ec2" ]; then
+      # On EC2 instance
+      local EC2_AVAIL_ZONE=`curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone`
+      local _region="`echo \"$EC2_AVAIL_ZONE\" | sed 's/[a-z]$//'`"
+      local aws_profile=$(curl -s http://169.254.169.254/latest/meta-data/iam/info | jq -r ".InstanceProfileArn" | cut -d "/" -f 2)
+    else
+      local aws_region=`aws configure get region`
+      local _region="${AWS_DEFAULT_REGION:-$aws_region}"
+      local aws_profile="${AWS_PROFILE:-$AWS_DEFAULT_PROFILE}"
+    fi
 
     if [[ -n "$aws_profile" ]]; then
       _p9k_prompt_segment "$0$state" red white 'AWS_ICON' 0 '' "$aws_profile ($_region)"

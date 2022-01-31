@@ -12,7 +12,7 @@ install-linux-packages() {
   sudo yum update
   sudo yum install -y make glibc-devel gcc patch readline readline-devel zlib zlib-devel
   sudo yum install -y libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison iconv-devel
-  sudo yum install -y zsh tree
+  sudo yum install -y zsh tree jq
   sudo yum install -y whois lshw
   sudo yum install -y bind-utils
 }
