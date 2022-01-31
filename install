@@ -33,6 +33,17 @@ if [[ "$CURRENT_OSTYPE" == "linux" ]]; then
   elif [[ "$CURRENT_LINUX_OS" == "amzn" ]]; then
     "$BASEDIR/setup_amzn2.sh"
   fi
+fi
+
+if [ $CURRENT_IS_DOCKER -eq 1 ] \
+  && [[ "$CURRENT_OSTYPE" == "linux" ]] \
+  && [[ "$CURRENT_LINUX_OS" == "debian" ]]; then
+  "$BASEDIR/setup_debian.sh"
+  CONFIG="install-debian-devcontainer.conf.yaml"
+elif [ $CURRENT_IS_DOCKER -eq 1 ] \
+  && [[ "$CURRENT_OSTYPE" == "linux" ]] \
+  && [[ "$CURRENT_LINUX_OS" == "amzn" ]]; then
+  "$BASEDIR/setup_amzn2.sh"
 else
   CONFIG="install.conf.yaml"
   SUDO_CONFIG="install-sudo.conf.yaml"

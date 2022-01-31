@@ -49,6 +49,7 @@ if [[ "$CURRENT_OSTYPE" == "macos" ]] && [ $CURRENT_IS_DOCKER -eq 0 ]; then
   export PATH="$PATH:/opt/homebrew/sbin"
 fi
 export PATH="$HOME/.krew/bin:$PATH"
+export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:/usr/local/bin"
 
 

@@ -15,12 +15,10 @@ install-linux-packages() {
   sudo yum install -y zsh tree
   sudo yum install -y whois lshw
   sudo yum install -y bind-utils
-  sudo yum install -y netcat
 }
 
 install-amazon-extras(){
   sudo amazon-linux-extras install -y rust1
-  sudo amazon-linux-extras install -y golang1.11
 }
 
 install-cargo-packages(){
@@ -36,11 +34,16 @@ install-bat(){
   sudo mv /tmp/bat-v$BAT_VERISON-$ARCH--unknown-linux-gnu/bat /usr/local/bin/bat
 }
 
-install-go-packages(){
-  # go install github.com/hidetatz/kubecolor/cmd/kubecolor@latest*
+install-kubecolor(){
+  KUBECOLOR_VERISON="0.0.20"
+  ARCH=$(/usr/bin/arch)
+  wget -O /tmp/kubecolor.tar.gz https://github.com/hidetatz/kubecolor/releases/download/v${KUBECOLOR_VERISON}/kubecolor_${KUBECOLOR_VERISON}_Linux_$ARCH.tar.gz
+  tar -xvzf /tmp/kubecolor.tar.gz -C /tmp
+  sudo mv /tmp/kubecolor /usr/local/bin/kubecolor
 }
 
 install-pip-packages(){
+  sudo pip3 install sqlalchemy
   sudo easy_install csvkit
 }
 
@@ -72,7 +75,7 @@ install-amazon-extras
 install-cargo-packages
 install-go-packages
 install-bat
-install-go-packages
+install-kubecolor
 install-pip-packages
 install-antibody
 upgrade-packages
