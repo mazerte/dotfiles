@@ -34,6 +34,8 @@ brew "bat"
 brew "cmake"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Suite of command-line tools for converting to and working with CSV
+brew "csvkit"
 # Lightweight DNS forwarder and DHCP server
 brew "dnsmasq", restart_service: true
 # Pack, ship and run any application as a lightweight container
@@ -54,6 +56,8 @@ brew "gobject-introspection"
 brew "harfbuzz"
 # Framework for layout and rendering of i18n text
 brew "pango"
+# Library to render SVG files using Cairo
+brew "librsvg"
 # Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
 # Kubernetes package manager

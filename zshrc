@@ -41,15 +41,36 @@ fi
 if exists aws; then
   # AWS
   alias s3cat='_s3cat(){ aws s3 cp "$1" -;  unset -f _s3cat; }; _s3cat'
-  alias ec2id='_ec2id(){ aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=\"*$@*\"" | jq -r  ".Reservations[0].Instances[0].InstanceId";  unset -f _ec2id; }; _ec2id'
-  alias assh='_assh(){ aws ssm start-session --target $(ec2id $1);  unset -f _assh; }; _assh'
-  function atunnel() {
+  alias assh='_assh(){ aws ssm start-session --target $(ec2 id $1);  unset -f _assh; }; _assh'
+  function apf() {
     local instance=`ec2id $1`
     local params="{\"portNumber\": [\"$2\"], \"localPortNumber\": [\"$3\"]}"
     aws ssm start-session \
       --target $instance \
       --document-name AWS-StartPortForwardingSession \
       --parameters $params
+  }
+  function ec2() {
+    case $1 in
+      ls)
+        aws ec2 describe-instances | jq -r "[.Reservations[].Instances[] | first( . | select(.Tags[].Value | contains(\"$2\"))) | {Name:(.Tags[] | select(.Key == \"Name\") | .Value), Instance:.InstanceType, State: .State.Name, Id: .InstanceId}]" | in2csv -f json | csvlook
+        ;;
+      id)
+        aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=\"*$2*\"" | jq -r  ".Reservations[0].Instances[0].InstanceId"
+        ;;
+      id-all)
+        aws ec2 describe-instances --filters "Name=tag:Name,Values=\"*$2*\"" | jq -r  ".Reservations[0].Instances[0].InstanceId"
+        ;;
+      stop)
+        aws ec2 stop-instances --instance-ids $(ec2 id $2)
+        ;;
+      start)
+        aws ec2 start-instances --instance-ids $(ec2 id-all $2)
+        ;;
+      terminate)
+        aws ec2 terminate-instances --instance-ids $(ec2 id $2)
+        ;;
+    esac
   }
 fi
 
