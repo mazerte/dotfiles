@@ -279,7 +279,7 @@ plugins=(
   terraform
 )
 ZSH=$(antibody path ohmyzsh/ohmyzsh)
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
 
 if exists aws && exists brew; then
   # AWS

@@ -26,11 +26,13 @@ DOTBOT_DIR="dotbot"
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-if [ $CURRENT_IS_DOCKER -eq 1 ] \
-  && [[ "$CURRENT_OSTYPE" == "linux" ]] \
-  && [[ "$CURRENT_LINUX_OS" == "debian" ]]; then
-  "$BASEDIR/setup_debian.sh"
-  CONFIG="install-debian-devcontainer.conf.yaml"
+if [[ "$CURRENT_OSTYPE" == "linux" ]]; then
+  CONFIG="install-linux.conf.yaml"
+  if [[ "$CURRENT_LINUX_OS" == "debian" ]]; then
+    "$BASEDIR/setup_debian.sh"
+  elif [[ "$CURRENT_LINUX_OS" == "amzn" ]]; then
+    "$BASEDIR/setup_amzn2.sh"
+  fi
 else
   CONFIG="install.conf.yaml"
   SUDO_CONFIG="install-sudo.conf.yaml"
