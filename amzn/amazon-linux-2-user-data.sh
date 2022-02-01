@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo yum install -y git zsh
-sudo adduser -r -m -s /bin/zsh -g ssm-user mazerte
+sudo adduser -r -m -s /bin/zsh mazerte
 echo 'mazerte ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
 
 su mazerte <<'EOF'
