@@ -7,6 +7,25 @@ function exists() {
   # command -v $1 1>/dev/null 2>/dev/null
 }
 
+# https://serverfault.com/questions/462903/how-to-know-if-a-machine-is-an-ec2-instance
+function is_ec2() {
+  if [ -f /sys/hypervisor/uuid ]; then
+    # File should be readable by non-root users.
+    if [ `head -c 3 /sys/hypervisor/uuid` = "ec2" ]; then
+      return 1
+    else
+      return 0
+    fi
+  elif sudo [ -r /sys/devices/virtual/dmi/id/product_uuid ]; then
+    # If the file exists AND is readable by us, we can rely on it.
+    if [ `sudo head -c 3 /sys/devices/virtual/dmi/id/product_uuid` == "EC2" ]; then
+      echo yes
+    else
+      echo no
+    fi
+  fi
+}
+
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   export CURRENT_OSTYPE="linux"
   export CURRENT_ARCH=$(/usr/bin/arch)

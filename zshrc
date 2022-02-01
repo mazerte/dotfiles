@@ -196,8 +196,7 @@ prompt_ckubecontext() {
 
 prompt_caws() {
   if exists aws; then
-    # https://serverfault.com/questions/462903/how-to-know-if-a-machine-is-an-ec2-instance
-    if [ -f /sys/hypervisor/uuid ] && [ `head -c 3 /sys/hypervisor/uuid` = "ec2" ]; then
+    if is_ec2; then
       # On EC2 instance
       local EC2_AVAIL_ZONE=`curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone`
       local _region="`echo \"$EC2_AVAIL_ZONE\" | sed 's/[a-z]$//'`"
@@ -225,7 +224,7 @@ prompt_cterraform() {
 
 prompt_compute() {
   local compute="${CURRENT_LINUX_OS:-$CURRENT_OSTYPE}$CURRENT_VERSION($CURRENT_ARCH)"
-  if [ -f /sys/hypervisor/uuid ] && [ `head -c 3 /sys/hypervisor/uuid` = "ec2" ]; then
+  if is_ec2; then
     compute+=" - $(curl -s http://169.254.169.254/latest/meta-data/instance-id)"
   fi
   local icon=''
