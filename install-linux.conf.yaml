@@ -24,7 +24,14 @@
     ~/.editorconfig:
     ~/.curlrc:
 
+- create:
+    ~/.ssh:
+      mode: 0700
+
 - shell:
+    - command: ./setup_ssh.zsh
+      stdout: true
+      stderr: true
     - command: ./setup_kubernetes.zsh
       stdout: true
       stderr: true
