@@ -245,7 +245,7 @@ prompt_ec2() {
   if is_ec2; then
     local ec2_id=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
     local ec2_type=$(curl -s http://169.254.169.254/latest/meta-data/instance-type)
-    local ec2_name=$(curl -s http://169.254.169.254/latest/meta-data/tags/instance/Name)
+    local ec2_name=$(curlf -s http://169.254.169.254/latest/meta-data/tags/instance/Name 2> /dev/null|| echo "Unknown")
     local ec2="$ec2_name | $ec2_type | $ec2_id"
 
     _p9k_prompt_segment "$0$state" "240" white "AWS_ICON" 0 '' "$ec2"
