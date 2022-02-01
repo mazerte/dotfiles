@@ -50,6 +50,17 @@ if exists aws; then
       --document-name AWS-StartPortForwardingSession \
       --parameters $params
   }
+  function asr() {
+    if exists aws; then
+      if [[ -z "$1" ]]; then
+        unset AWS_DEFAULT_REGION
+        echo AWS region cleared.
+        return
+      fi
+
+      export AWS_DEFAULT_REGION=$1
+    fi
+  }
   function ec2() {
     case $1 in
       ls)
@@ -186,7 +197,7 @@ prompt_ckubecontext() {
 prompt_caws() {
   if exists aws; then
     # https://serverfault.com/questions/462903/how-to-know-if-a-machine-is-an-ec2-instance
-    if [ -f /sys/hypervisor/uuid ] && [ `head -c 3 /sys/hypervisor/uuid` == "ec2" ]; then
+    if [ -f /sys/hypervisor/uuid ] && [ `head -c 3 /sys/hypervisor/uuid` = "ec2" ]; then
       # On EC2 instance
       local EC2_AVAIL_ZONE=`curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone`
       local _region="`echo \"$EC2_AVAIL_ZONE\" | sed 's/[a-z]$//'`"
@@ -203,18 +214,6 @@ prompt_caws() {
   fi
 }
 
-function asr() {
-  if exists aws; then
-    if [[ -z "$1" ]]; then
-      unset AWS_DEFAULT_REGION
-      echo AWS region cleared.
-      return
-    fi
-
-    export AWS_DEFAULT_REGION=$1
-  fi
-}
-
 prompt_cterraform() {
   if exists terraform; then
     local tfp=`tf_prompt_info | sed 's/[][]//g'`
@@ -222,6 +221,28 @@ prompt_cterraform() {
       _p9k_prompt_segment "$0$state" "56" white '' 0 '' "$tfp"
     fi
   fi
+}
+
+prompt_compute() {
+  local compute="${CURRENT_LINUX_OS:-$CURRENT_OSTYPE}$CURRENT_VERSION($CURRENT_ARCH)"
+  if [ -f /sys/hypervisor/uuid ] && [ `head -c 3 /sys/hypervisor/uuid` == "ec2" ]; then
+    compute+=" - $(curl -s http://169.254.169.254/latest/meta-data/instance-id)"
+  fi
+  local icon=''
+  if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    if [[ "$CURRENT_LINUX_OS" == "debian" ]]; then
+      icon='LINUX_DEBIAN_ICON'
+    elif [[ "$CURRENT_LINUX_OS" == "ubuntu" ]]; then
+      icon='LINUX_UBUNTU_ICON'
+    elif [[ "$CURRENT_LINUX_OS" == "amzn" ]]; then
+      icon='AWS_ICON'
+    else
+      icon='LINUX_ICON'
+    fi
+  elif [[ "$OSTYPE" == "darwin"* ]]; then
+    icon='APPLE_ICON'
+  fi
+  _p9k_prompt_segment "$0$state" "29" white "$icon" 0 '' "$compute"
 }
 
 # Disable completion directory permission verification
@@ -246,7 +267,7 @@ POWERLEVEL9K_CRVM_BACKGROUND="160"
 POWERLEVEL9K_CRVM_FOREGROUND="007"
 POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
 POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context compute dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs canaconda cterraform ckubecontext crvm nvm caws command_execution_time time)
 
 

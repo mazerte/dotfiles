@@ -1,17 +1,10 @@
 #!/bin/bash
 
 sudo yum install -y git zsh
-git clone https://github.com/mazerte/dotfiles ~/.dotfiles
-cd ~/.dotfiles
-./install
+sudo adduser -r -m -s /bin/zsh -g ssm-user mazerte
+echo 'mazerte ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
 
-su ssm-user <<'EOF'
-git clone https://github.com/mazerte/dotfiles ~/.dotfiles
-cd ~/.dotfiles
-./install
-EOF
-
-su ec2-user <<'EOF'
+su mazerte <<'EOF'
 git clone https://github.com/mazerte/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 ./install
