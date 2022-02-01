@@ -16,7 +16,7 @@ function is_ec2() {
     else
       return 1
     fi
-  elif sudo [ -r /sys/devices/virtual/dmi/id/product_uuid ]; then
+  elif sudo -n true > /dev/null 2>/dev/null && sudo [ -r /sys/devices/virtual/dmi/id/product_uuid ]; then
     # If the file exists AND is readable by us, we can rely on it.
     if [ `sudo head -c 3 /sys/devices/virtual/dmi/id/product_uuid` = "ec2" ]; then
       return 0
@@ -24,7 +24,7 @@ function is_ec2() {
       return 1
     fi
   fi
-
+  return 1
 }
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
