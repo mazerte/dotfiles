@@ -10,8 +10,8 @@ function exists() {
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   export CURRENT_OSTYPE="linux"
   export CURRENT_ARCH=$(/usr/bin/arch)
-  export CURRENT_LINUX_OS=$(egrep '^ID=' /etc/os-release | cut -d "=" -f 2)
-  export CURRENT_VERSION=$(egrep '^VERSION_ID=' /etc/os-release | cut -d "=" -f 2)
+  export CURRENT_LINUX_OS=$(egrep '^ID=' /etc/os-release | cut -d "=" -f 2 | sed 's/\"//g')
+  export CURRENT_VERSION=$(egrep '^VERSION_ID=' /etc/os-release | cut -d "=" -f 2 | sed 's/\"//g')
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   export CURRENT_OSTYPE="macos"
   export CURRENT_ARCH=$(/usr/bin/arch)
