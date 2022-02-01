@@ -225,7 +225,9 @@ prompt_cterraform() {
 prompt_compute() {
   local compute="${CURRENT_LINUX_OS:-$CURRENT_OSTYPE}$CURRENT_VERSION($CURRENT_ARCH)"
   if is_ec2; then
-    compute+=" - $(curl -s http://169.254.169.254/latest/meta-data/instance-id)"
+    local ec2_id=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+    local ec2_type=$(curl -s http://169.254.169.254/latest/meta-data/instance-type)
+    compute+=" - $ec2_type($ec2_id)"
   fi
   local icon=''
   if [[ "$OSTYPE" == "linux-gnu"* ]]; then
