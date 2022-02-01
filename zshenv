@@ -19,9 +19,9 @@ function is_ec2() {
   elif sudo [ -r /sys/devices/virtual/dmi/id/product_uuid ]; then
     # If the file exists AND is readable by us, we can rely on it.
     if [ `sudo head -c 3 /sys/devices/virtual/dmi/id/product_uuid` = "ec2" ]; then
-      echo yes
+      return 1
     else
-      echo no
+      return 0
     fi
   fi
 }
