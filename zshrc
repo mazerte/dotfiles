@@ -224,11 +224,6 @@ prompt_cterraform() {
 
 prompt_compute() {
   local compute="${CURRENT_LINUX_OS:-$CURRENT_OSTYPE}$CURRENT_VERSION($CURRENT_ARCH)"
-  if is_ec2; then
-    local ec2_id=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
-    local ec2_type=$(curl -s http://169.254.169.254/latest/meta-data/instance-type)
-    compute+=" - $ec2_type($ec2_id)"
-  fi
   local icon=''
   if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     if [[ "$CURRENT_LINUX_OS" == "debian" ]]; then
@@ -244,6 +239,17 @@ prompt_compute() {
     icon='APPLE_ICON'
   fi
   _p9k_prompt_segment "$0$state" "29" white "$icon" 0 '' "$compute"
+}
+
+prompt_ec2() {
+  if is_ec2; then
+    local ec2_id=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+    local ec2_type=$(curl -s http://169.254.169.254/latest/meta-data/instance-type)
+    local ec2_name=$(curl -s http://169.254.169.254/latest/meta-data/tags/instance/Name)
+    local ec2="$ec2_name | $ec2_type | $ec2_id"
+
+    _p9k_prompt_segment "$0$state" red white "AWS_ICON" 0 '' "$compute"
+  fi
 }
 
 # Disable completion directory permission verification
@@ -268,8 +274,8 @@ POWERLEVEL9K_CRVM_BACKGROUND="160"
 POWERLEVEL9K_CRVM_FOREGROUND="007"
 POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
 POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context compute dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs canaconda cterraform ckubecontext crvm nvm caws command_execution_time time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(compute ec2 newline context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(newline status background_jobs canaconda cterraform ckubecontext crvm nvm caws command_execution_time time)
 
 
 if exists nvm; then
