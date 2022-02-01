@@ -248,7 +248,7 @@ prompt_ec2() {
     local ec2_name=$(curl -s http://169.254.169.254/latest/meta-data/tags/instance/Name)
     local ec2="$ec2_name | $ec2_type | $ec2_id"
 
-    _p9k_prompt_segment "$0$state" red white "AWS_ICON" 0 '' "$compute"
+    _p9k_prompt_segment "$0$state" "208" white "AWS_ICON" 0 '' "$ec2"
   fi
 }
 
