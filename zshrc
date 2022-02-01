@@ -225,7 +225,7 @@ prompt_cterraform() {
 
 prompt_compute() {
   local compute="${CURRENT_LINUX_OS:-$CURRENT_OSTYPE}$CURRENT_VERSION($CURRENT_ARCH)"
-  if [ -f /sys/hypervisor/uuid ] && [ `head -c 3 /sys/hypervisor/uuid` == "ec2" ]; then
+  if [ -f /sys/hypervisor/uuid ] && [ `head -c 3 /sys/hypervisor/uuid` = "ec2" ]; then
     compute+=" - $(curl -s http://169.254.169.254/latest/meta-data/instance-id)"
   fi
   local icon=''
