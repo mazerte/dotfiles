@@ -7,6 +7,18 @@ function exists() {
   # command -v $1 1>/dev/null 2>/dev/null
 }
 
+# https://superuser.com/questions/590099/can-i-make-curl-fail-with-an-exitcode-different-than-0-if-the-http-status-code-i
+function curlf() {
+  OUTPUT_FILE=$(mktemp)
+  HTTP_CODE=$(curl --silent --output $OUTPUT_FILE --write-out "%{http_code}" "$@")
+  if [[ ${HTTP_CODE} -lt 200 || ${HTTP_CODE} -gt 299 ]] ; then
+    >&2 cat $OUTPUT_FILE
+    return 22
+  fi
+  cat $OUTPUT_FILE
+  rm $OUTPUT_FILE
+}
+
 # https://serverfault.com/questions/462903/how-to-know-if-a-machine-is-an-ec2-instance
 function is_ec2() {
   if [ -f /sys/hypervisor/uuid ]; then
