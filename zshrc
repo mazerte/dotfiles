@@ -32,6 +32,7 @@ alias ftrail='<<<${(F)fpath}'
 alias lp='sudo lsof -i -P | grep LISTEN'
 alias man=batman
 alias ohmyzsh='_ohmyzsh(){ open "https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/$@";  unset -f _ohmyzsh; }; _ohmyzsh'
+alias pf='_pf(){ ssh -L ${1}:localhost:${2} -N $3;  unset -f _pf; }; _pf'
 
 if exists brew; then
   # Brew
@@ -41,8 +42,10 @@ fi
 if exists aws; then
   # AWS
   alias s3cat='_s3cat(){ aws s3 cp "$1" -;  unset -f _s3cat; }; _s3cat'
-  alias assh='_assh(){ aws ssm start-session --target $(ec2 id $1);  unset -f _assh; }; _assh'
-  function apf() {
+  alias ass='_ass(){ aws ssm start-session --target $(ec2 id $1);  unset -f _ass; }; _ass'
+  alias assh='_assh(){ ssh mazerte@$(ec2 id $1);  unset -f _assh; }; _assh'
+  alias apf='_apf(){ ssh -L ${1}:localhost:${2} -N mazerte@$(ec2 id $3);  unset -f _apf; }; _apf'
+  function asspf() {
     local instance=`ec2id $1`
     local params="{\"portNumber\": [\"$2\"], \"localPortNumber\": [\"$3\"]}"
     aws ssm start-session \
