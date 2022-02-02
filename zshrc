@@ -255,6 +255,21 @@ prompt_ec2() {
   fi
 }
 
+prompt_is_docker() {
+  if [ $CURRENT_IS_DOCKER = 1 ]; then
+    _p9k_prompt_segment "$0$state" "027" white "" 0 '' $'\uf308'
+  fi
+}
+
+prompt_docker() {
+  if exists docker; then
+    local docker_context=`docker context inspect | jq -r '.[0].Name'`
+    if ! [ "$docker_context" = "default" ]; then
+      _p9k_prompt_segment "$0$state" "027" white '' 0 '' "$docker_context  "
+    fi
+  fi
+}
+
 # Disable completion directory permission verification
 ZSH_DISABLE_COMPFIX=true
 
@@ -279,6 +294,7 @@ POWERLEVEL9K_CRVM_FOREGROUND="007"
 POWERLEVEL9K_ANACONDA_LEFT_DELIMITER=""
 POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER=""
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
+  is_docker
   compute
   ec2
   newline
@@ -294,6 +310,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
   crvm
   nvm
   caws
+  docker
   newline
   status
   command_execution_time
