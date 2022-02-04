@@ -28,8 +28,8 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 if [[ "$CURRENT_OSTYPE" == "linux" ]]; then
   CONFIG="install-linux.conf.yaml"
-  if [[ "$CURRENT_LINUX_OS" == "debian" ]]; then
-    "$BASEDIR/setup_debian.sh"
+  if [[ "$CURRENT_LINUX_OS" == "debian" ]] || [[ "$CURRENT_LINUX_OS" == "ubuntu" ]]; then
+    CURRENT_LINUX_OS=$CURRENT_LINUX_OS "$BASEDIR/setup_ubuntu_debian.sh"
   elif [[ "$CURRENT_LINUX_OS" == "amzn" ]]; then
     "$BASEDIR/setup_amzn2.sh"
   fi
