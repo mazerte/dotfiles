@@ -32,8 +32,8 @@ install-linux-packages() {
 
     # Exa
     EXA_VERISON="0.8.0"
-    wget -O /tmp/exa.tar.gz https://github.com/ogham/exa/releases/download/v${EXA_VERISON}/exa-linux-$ARCH-${EXA_VERISON}.zip
-    unzip /tmp/exa.tar.gz -d /tmp
+    wget -O /tmp/exa.zip https://github.com/ogham/exa/releases/download/v${EXA_VERISON}/exa-linux-$ARCH-${EXA_VERISON}.zip
+    unzip /tmp/exa.zip -d /tmp
     sudo mv /tmp/exa-linux-$ARCH /usr/local/bin/exa
   else
     sudo apt-get install -y exa kubecolor
