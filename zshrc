@@ -67,7 +67,7 @@ if exists aws; then
   function ec2() {
     case $1 in
       ls)
-        aws ec2 describe-instances | jq -r "[.Reservations[].Instances[] | first( . | select(.Tags[].Value | contains(\"$2\"))) | {Name:(.Tags[] | select(.Key == \"Name\") | .Value), Instance:.InstanceType, State: .State.Name, Id: .InstanceId}]" | in2csv -f json | csvlook
+        aws ec2 describe-instances | jq -r "[.Reservations[].Instances[] | first( . | select(.Tags[].Value | contains(\"$2\"))) | {Name:(.Tags[] | select(.Key == \"Name\") | .Value), Instance:.InstanceType, State: .State.Name, Id: .InstanceId, DNS: .PublicDnsName}]" | in2csv -f json | csvlook
         ;;
       id)
         aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=\"*$2*\"" | jq -r  ".Reservations[0].Instances[0].InstanceId"
