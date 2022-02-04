@@ -21,7 +21,7 @@ install-linux-packages() {
   sudo apt-get install -y bat
 
   if [[ "$CURRENT_LINUX_OS" == "ubuntu" ]]; then
-    ARCH=$(/usr/bin/arch)
+    ARCH=$([ "$(uname -m)" = "arm64" ] && echo "arm64" || echo "amd64")
     sudo apt-get install -y awscli
 
     # Kubecolor
