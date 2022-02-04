@@ -14,7 +14,7 @@ fi
 if [[ $(sudo ps -ax | grep amazon-ssm-agents | wc -l) -eq 1 ]]; then
   EC2_AVAIL_ZONE=`curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone`
   EC2_REGION="`echo \"$EC2_AVAIL_ZONE\" | sed 's/[a-z]$//'`"
-  ARCH=$([ "$(uname -m)" = "arm64" ] && echo "arm64" || echo "amd64")
+  ARCH=$([ "$(uname -m)" = "arm64" ] || [ "$(uname -m)" = "aarch64" ] && echo "arm64" || echo "amd64")
   mkdir /tmp/ssm
   cd /tmp/ssm
   if [[ "$CURRENT_LINUX_OS" == "debian" ]]; then
@@ -47,7 +47,7 @@ if [[ "$CURRENT_OSTYPE" == "linux" ]]; then
   echo 'mazerte ALL=(ALL) NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo
 fi
 
-su mazerte <<'EOF'
+sudo su mazerte <<'EOF'
 git clone https://github.com/mazerte/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 ./install
