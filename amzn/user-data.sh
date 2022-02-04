@@ -28,7 +28,7 @@ if [[ $(sudo ps -ax | grep amazon-ssm-agents | wc -l) -eq 1 ]]; then
     sudo wget https://s3.$EC2_REGION.amazonaws.com/amazon-ssm-$EC2_REGION/latest/darwin_$ARCH/amazon-ssm-agent.pkg
     sudo installer -pkg amazon-ssm-agent.pkg -target /
     sudo launchctl load -w /Library/LaunchDaemons/com.amazon.aws.ssm.plist && sudo launchctl start com.amazon.aws.ssm
-  if
+  fi
 fi
 
 if [[ "$CURRENT_OSTYPE" == "linux" ]]; then
