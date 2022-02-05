@@ -41,7 +41,7 @@ function is_ec2() {
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   export CURRENT_OSTYPE="linux"
-  export CURRENT_ARCH=$(/usr/bin/arch)
+  export CURRENT_ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')"
   export CURRENT_LINUX_OS=$(egrep '^ID=' /etc/os-release | cut -d "=" -f 2 | sed 's/\"//g')
   export CURRENT_VERSION=$(egrep '^VERSION_ID=' /etc/os-release | cut -d "=" -f 2 | sed 's/\"//g')
 elif [[ "$OSTYPE" == "darwin"* ]]; then

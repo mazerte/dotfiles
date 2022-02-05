@@ -21,20 +21,25 @@ install-linux-packages() {
   sudo apt-get install -y bat
 
   if [[ "$CURRENT_LINUX_OS" == "ubuntu" ]]; then
-    ARCH=$([ "$(uname -m)" = "arm64" ] || [ "$(uname -m)" = "aarch64" ] && echo "arm64" || echo "amd64")
+    ARCH="$(uname -m | sed -e 's/amd64/x86_64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')"
     sudo apt-get install -y awscli
 
     # Kubecolor
-    KUBECOLOR_VERISON="0.0.20"
+    KUBECOLOR_VERISON=$(curl -s "https://api.github.com/repos/hidetatz/kubecolor/releases/latest" | jq -r ".tag_name" | sed s/v//g)
     wget -O /tmp/kubecolor.tar.gz https://github.com/hidetatz/kubecolor/releases/download/v${KUBECOLOR_VERISON}/kubecolor_${KUBECOLOR_VERISON}_Linux_$ARCH.tar.gz
     tar -xvzf /tmp/kubecolor.tar.gz -C /tmp
     sudo mv /tmp/kubecolor /usr/local/bin/kubecolor
 
     # Exa
-    EXA_VERISON="0.8.0"
-    wget -O /tmp/exa.zip https://github.com/ogham/exa/releases/download/v${EXA_VERISON}/exa-linux-$ARCH-${EXA_VERISON}.zip
-    unzip /tmp/exa.zip -d /tmp
-    sudo mv /tmp/exa-linux-$ARCH /usr/local/bin/exa
+    if [[ "$ARCH" = "x86_64" ]]; then
+      EXA_VERISON=$(curl -s "https://api.github.com/repos/ogham/exa/releases/latest" | jq -r ".tag_name" | sed s/v//g)
+      wget -O /tmp/exa.zip https://github.com/ogham/exa/releases/download/v${EXA_VERISON}/exa-linux-$ARCH-${EXA_VERISON}.zip
+      unzip /tmp/exa.zip -d /tmp
+      sudo mv /tmp/exa-linux-$ARCH /usr/local/bin/exa
+    else
+      curl https://sh.rustup.rs -sSf | sh
+      cargo install exa
+    fi
   else
     sudo apt-get install -y exa kubecolor
   fi

@@ -14,7 +14,7 @@ fi
 if [[ $(sudo ps -ax | grep amazon-ssm-agents | wc -l) -eq 1 ]]; then
   EC2_AVAIL_ZONE=`curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone`
   EC2_REGION="`echo \"$EC2_AVAIL_ZONE\" | sed 's/[a-z]$//'`"
-  ARCH=$([ "$(uname -m)" = "arm64" ] || [ "$(uname -m)" = "aarch64" ] && echo "arm64" || echo "amd64")
+  ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')"
   mkdir /tmp/ssm
   cd /tmp/ssm
   if [[ "$CURRENT_LINUX_OS" == "debian" ]]; then

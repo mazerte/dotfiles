@@ -27,16 +27,16 @@ install-cargo-packages(){
 
 install-bat(){
   # https://github.com/sharkdp/bat
-  BAT_VERISON="0.19.0"
-  ARCH=$(/usr/bin/arch)
+  BAT_VERISON=$(curl -s "https://api.github.com/repos/sharkdp/bat/releases/latest" | jq -r ".tag_name" | sed s/v//g)
+  ARCH="$(uname -m | sed -e 's/amd64/x86_64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/arm64/aarch64/')"
   wget -O /tmp/bat.tar.gz https://github.com/sharkdp/bat/releases/download/v$BAT_VERISON/bat-v$BAT_VERISON-$ARCH-unknown-linux-gnu.tar.gz
   tar -xvzf /tmp/bat.tar.gz -C /tmp
   sudo mv /tmp/bat-v$BAT_VERISON-$ARCH--unknown-linux-gnu/bat /usr/local/bin/bat
 }
 
 install-kubecolor(){
-  KUBECOLOR_VERISON="0.0.20"
-  ARCH=$(/usr/bin/arch)
+  KUBECOLOR_VERISON=$(curl -s "https://api.github.com/repos/hidetatz/kubecolor/releases/latest" | jq -r ".tag_name" | sed s/v//g)
+  ARCH="$(uname -m | sed -e 's/amd64/x86_64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64/arm64/')"
   wget -O /tmp/kubecolor.tar.gz https://github.com/hidetatz/kubecolor/releases/download/v${KUBECOLOR_VERISON}/kubecolor_${KUBECOLOR_VERISON}_Linux_$ARCH.tar.gz
   tar -xvzf /tmp/kubecolor.tar.gz -C /tmp
   sudo mv /tmp/kubecolor /usr/local/bin/kubecolor
