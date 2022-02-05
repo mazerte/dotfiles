@@ -72,6 +72,12 @@ if exists aws; then
       id)
         aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=\"*$2*\"" | jq -r  ".Reservations[0].Instances[0].InstanceId"
         ;;
+      public)
+        aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=\"*$2*\"" | jq -r  ".Reservations[0].Instances[0].PublicDnsName"
+        ;;
+      private)
+        aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=\"*$2*\"" | jq -r  ".Reservations[0].Instances[0].PrivateDnsName"
+        ;;
       id-all)
         aws ec2 describe-instances --filters "Name=tag:Name,Values=\"*$2*\"" | jq -r  ".Reservations[0].Instances[0].InstanceId"
         ;;

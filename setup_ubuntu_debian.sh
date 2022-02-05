@@ -37,8 +37,8 @@ install-linux-packages() {
       unzip /tmp/exa.zip -d /tmp
       sudo mv /tmp/exa-linux-$ARCH /usr/local/bin/exa
     else
-      curl https://sh.rustup.rs -sSf | sh
-      cargo install exa
+      curl https://sh.rustup.rs -sSf | sh -s -- -y
+      $HOME/.cargo/bin/cargo install exa
     fi
   else
     sudo apt-get install -y exa kubecolor
