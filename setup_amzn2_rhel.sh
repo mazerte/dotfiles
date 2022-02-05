@@ -15,6 +15,7 @@ install-linux-packages() {
   sudo yum install -y zsh tree jq
   sudo yum install -y whois lshw
   sudo yum install -y bind-utils
+  sudo yum install -y wget python3
 }
 
 install-amazon-extras(){
@@ -31,7 +32,7 @@ install-bat(){
   ARCH="$(uname -m | sed -e 's/amd64/x86_64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/arm64/aarch64/')"
   wget -O /tmp/bat.tar.gz https://github.com/sharkdp/bat/releases/download/v$BAT_VERISON/bat-v$BAT_VERISON-$ARCH-unknown-linux-gnu.tar.gz
   tar -xvzf /tmp/bat.tar.gz -C /tmp
-  sudo mv /tmp/bat-v$BAT_VERISON-$ARCH--unknown-linux-gnu/bat /usr/local/bin/bat
+  sudo mv /tmp/bat-v$BAT_VERISON-$ARCH-unknown-linux-gnu/bat /usr/local/bin/bat
 }
 
 install-kubecolor(){
@@ -45,6 +46,7 @@ install-kubecolor(){
 install-pip-packages(){
   sudo pip3 install sqlalchemy
   sudo easy_install csvkit
+  sudo easy_install-3 csvkit
 }
 
 install-antibody(){
@@ -56,7 +58,7 @@ upgrade-packages() {
   echo "                      Upgrade packages                     "
   echo "-----------------------------------------------------------"
 
-  sudo yum update && sudo yum upgrade -y
+  sudo yum update -y && sudo yum upgrade -y
 }
 
 finish() {
