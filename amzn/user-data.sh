@@ -27,6 +27,10 @@ if [[ $(sudo ps -ax | grep amazon-ssm-agents | wc -l) -eq 1 ]]; then
     sudo systemctl enable amazon-ssm-agent
   elif [[ "$CURRENT_LINUX_OS" == "ubuntu" ]]; then
     sudo snap install amazon-ssm-agent --classic
+  elif [[ "$CURRENT_LINUX_OS" == "rhel" ]]; then
+    sudo dnf install -y https://s3.$EC2_REGION.amazonaws.com/amazon-ssm-$EC2_REGION/latest/linux_$ARCH/amazon-ssm-agent.rpm
+    sudo systemctl status amazon-ssm-agent
+    sudo systemctl enable amazon-ssm-agent
   elif [[ "$CURRENT_OSTYPE" == "macos" ]]; then
     sudo wget https://s3.$EC2_REGION.amazonaws.com/amazon-ssm-$EC2_REGION/latest/darwin_$ARCH/amazon-ssm-agent.pkg
     sudo installer -pkg amazon-ssm-agent.pkg -target /
@@ -43,7 +47,7 @@ if [[ "$CURRENT_OSTYPE" == "linux" ]]; then
     else
       sudo adduser --system --shell /bin/zsh mazerte
     fi
-  elif [[ "$CURRENT_LINUX_OS" == "amzn" ]]; then
+  elif [[ "$CURRENT_LINUX_OS" == "amzn" ]] || [[ "$CURRENT_LINUX_OS" == "rhel" ]]; then
     sudo yum install -y git zsh
     sudo adduser -r -m -s /bin/zsh mazerte
   fi

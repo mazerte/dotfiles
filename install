@@ -30,8 +30,8 @@ if [[ "$CURRENT_OSTYPE" == "linux" ]]; then
   CONFIG="install-linux.conf.yaml"
   if [[ "$CURRENT_LINUX_OS" == "debian" ]] || [[ "$CURRENT_LINUX_OS" == "ubuntu" ]]; then
     CURRENT_LINUX_OS=$CURRENT_LINUX_OS "$BASEDIR/setup_ubuntu_debian.sh"
-  elif [[ "$CURRENT_LINUX_OS" == "amzn" ]]; then
-    "$BASEDIR/setup_amzn2.sh"
+  elif [[ "$CURRENT_LINUX_OS" == "amzn" ]] || [[ "$CURRENT_LINUX_OS" == "rhel" ]]; then
+    "$BASEDIR/setup_amzn2_rhel.sh"
   fi
 else
   CONFIG="install.conf.yaml"
