@@ -44,6 +44,7 @@ install-kubecolor(){
 }
 
 install-pip-packages(){
+  sudo pip3 install awscli
   sudo pip3 install sqlalchemy
   sudo easy_install csvkit
   sudo easy_install-3 csvkit
