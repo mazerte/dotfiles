@@ -8,10 +8,12 @@
     ~/.zshrc:
       path: zshrc
       force: true
+    ~/.zshenv:
+      path: zshenv
+      force: true
     ~/.zsh:
     ~/.vimrc:
     ~/.vim:
-    ~/.zshenv:
     ~/.gitattributes:
     ~/.gitignore:
     ~/.gitconfig:

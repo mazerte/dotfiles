@@ -1,4 +1,7 @@
 #!/bin/bash
+# curl https://raw.githubusercontent.com/mazerte/dotfiles/main/amzn/user-data.sh -sSf | bash
+
+
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   CURRENT_OSTYPE="linux"
   CURRENT_ARCH=$(/usr/bin/arch)
