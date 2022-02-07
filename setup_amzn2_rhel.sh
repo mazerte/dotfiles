@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 
 start() {
   cd $HOME
@@ -15,7 +15,7 @@ install-linux-packages() {
   sudo yum install -y zsh tree jq
   sudo yum install -y whois lshw
   sudo yum install -y bind-utils
-  sudo yum install -y wget python3
+  sudo yum install -y wget python3 python3-devel gcc-c++
 }
 
 install-amazon-extras(){
@@ -23,7 +23,8 @@ install-amazon-extras(){
 }
 
 install-cargo-packages(){
-  cargo install exa
+  curl https://sh.rustup.rs -sSf | sh -s -- -y
+  $HOME/.cargo/bin/cargo install exa
 }
 
 install-bat(){
