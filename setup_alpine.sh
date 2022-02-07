@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# apk add curl bash git python
+# apk add curl bash git python3
 # git clone https://github.com/mazerte/dotfiles ~/.dotfiles
 # cd ~/.dotfiles
 # ./install

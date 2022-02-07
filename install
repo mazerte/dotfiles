@@ -45,6 +45,6 @@ git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
-if [ -z $SUDO_CONFIG ]; then
+if ! [ -z $SUDO_CONFIG ]; then
   sudo "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${SUDO_CONFIG}" "${@}"
 fi
