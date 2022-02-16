@@ -1,3 +1,4 @@
+tap "amazon/amazon", "ssh://git.amazon.com/pkg/HomebrewAmazon"
 tap "benwebber/tunnelblickctl"
 tap "eth-p/software"
 tap "hashicorp/tap"
@@ -9,7 +10,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
-tap "mazerte/software", "git@github.com:mazerte/homebrew-software.git"
+tap "mazerte/software"
 tap "sambadevi/powerlevel9k"
 tap "weaveworks/tap"
 # Shell plugin manager
@@ -108,6 +109,8 @@ brew "yq"
 brew "zlib"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Isengard-cli command line interface to Isengard
+brew "amazon/amazon/isengard-cli"
 # Command-line interface for Tunnelblick
 brew "benwebber/tunnelblickctl/tunnelblickctl"
 # Bash scripts that integrate bat with various command-line tools
@@ -164,8 +167,6 @@ cask "macfuse"
 # Minimal installer for conda specific to conda-forge
 cask "miniforge"
 cask "mysides"
-# Reverse proxy, secure introspectable tunnels to localhost
-cask "ngrok"
 # Cull 1000 photos in 60 seconds.
 cask "optyx"
 # G-code generator for 3D printers (RepRap, Makerbot, Ultimaker etc.)
