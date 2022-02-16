@@ -44,4 +44,20 @@ else
 fi
 
 killall Dock
+
+printf '%s' 'Setting up Startup items...'
+
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Stream Deck.app", hidden:true}'
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Alfred 4.app", hidden:true}'
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Discord.app", hidden:true}'
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Slack.app", hidden:true}'
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Companion.app", hidden:true}'
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Dropbox.app", hidden:true}'
+
+# work profile
+if [[ "$USER" == "desvem" ]]; then
+  osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Amazon Chime.app", hidden:true}'
+  osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Microsoft Outlook.app", hidden:true}'
+fi
+
 printf '%s\n' ' done.'
