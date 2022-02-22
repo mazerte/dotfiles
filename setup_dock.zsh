@@ -17,12 +17,12 @@ if [[ "$USER" == "desvem" ]]; then
   defaults write com.apple.dock \
                 persistent-apps -array "$(__dock_item /System/Applications/System\ Preferences.app)" \
                                         "$(__dock_item /Applications/Cisco/Cisco\ AnyConnect\ Secure\ Mobility\ Client.app)" \
+                                        "$(__dock_item /Applications/VeraCrypt.app)" \
+                                        "$(__dock_item /Applications/1Password\ 7.app)" \
                                         "$(__dock_item /Applications/Slack.app)" \
                                         "$(__dock_item /Applications/Discord.app)" \
                                         "$(__dock_item /Applications/Amazon\ Chime.app)" \
                                         "$(__dock_item /Applications/Microsoft\ Outlook.app)" \
-                                        "$(__dock_item /Applications/VeraCrypt.app)" \
-                                        "$(__dock_item /Applications/1Password\ 7.app)" \
                                         "$(__dock_item /Applications/iTerm.app)" \
                                         "$(__dock_item /Applications/Visual\ Studio\ Code.app)" \
                                         "$(__dock_item /Applications/Spotify.app)" \
@@ -33,10 +33,10 @@ if [[ "$USER" == "desvem" ]]; then
 else
   defaults write com.apple.dock \
                 persistent-apps -array "$(__dock_item /System/Applications/System\ Preferences.app)" \
-                                        "$(__dock_item /Applications/Slack.app)" \
-                                        "$(__dock_item /Applications/Discord.app)" \
                                         "$(__dock_item /Applications/VeraCrypt.app)" \
                                         "$(__dock_item /Applications/1Password\ 7.app)" \
+                                        "$(__dock_item /Applications/Slack.app)" \
+                                        "$(__dock_item /Applications/Discord.app)" \
                                         "$(__dock_item /Applications/iTerm.app)" \
                                         "$(__dock_item /Applications/Visual\ Studio\ Code.app)" \
                                         "$(__dock_item /Applications/Spotify.app)" \
