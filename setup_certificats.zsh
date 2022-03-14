@@ -17,3 +17,4 @@ __create_and_install_cert() {
 
 mkdir -pv ~/.certs
 __create_and_install_cert "*.local.test"
+__create_and_install_cert "localhost"

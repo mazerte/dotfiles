@@ -34,6 +34,10 @@ alias man=batman
 alias ohmyzsh='_ohmyzsh(){ open "https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/$@";  unset -f _ohmyzsh; }; _ohmyzsh'
 alias pf='_pf(){ ssh -L ${1}:localhost:${2} -N $3;  unset -f _pf; }; _pf'
 
+if exists http-server; then
+  alias https-server='_https-server(){ http-server -S -C ~/.certs/local.test.crt -K ~/.certs/local.test.key $@;  unset -f _https-server; }; _https-server'
+fi
+
 if exists brew; then
   # Brew
   alias bbd="brew bundle dump --force --describe"
