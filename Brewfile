@@ -23,6 +23,8 @@ brew "automake"
 brew "sqlite"
 # Integrated shell for working with the AWS CLI
 brew "aws-shell"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Official Amazon AWS command-line interface
@@ -31,6 +33,8 @@ brew "awscli@1"
 brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Core application library for C
+brew "glib"
 # Cross-platform make
 brew "cmake"
 # GNU File, Shell, and Text utilities
@@ -43,6 +47,8 @@ brew "dnsmasq", restart_service: true
 brew "docker", link: false
 # Modern replacement for 'ls'
 brew "exa"
+# Toolkit for image loading and pixel buffer manipulation
+brew "gdk-pixbuf"
 # Distributed revision control system
 brew "git"
 # Git extension for versioning large files
@@ -115,8 +121,6 @@ brew "amazon/amazon/isengard-cli"
 brew "benwebber/tunnelblickctl/tunnelblickctl"
 # Bash scripts that integrate bat with various command-line tools
 brew "eth-p/software/bat-extras"
-# Colorize your kubectl output
-brew "hidetatz/tap/kubecolor"
 # Open the AWS console with your CLI credentials where your needed to be!
 brew "mazerte/software/aws-console"
 # Easy CLI to create and manage vpn connection to your AWS VPC
@@ -190,6 +194,7 @@ cask "visual-studio-code"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "GIPHY CAPTURE", id: 668208984
+mas "Home Assistant", id: 1099568401
 mas "Reeder", id: 1449412482
 mas "ScreenBrush", id: 1233965871
 mas "Slack", id: 803453959
