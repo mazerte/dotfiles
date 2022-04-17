@@ -47,6 +47,12 @@ brew "dnsmasq", restart_service: true
 brew "docker", link: false
 # Modern replacement for 'ls'
 brew "exa"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
+# OpenType text shaping engine
+brew "harfbuzz"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
 # Toolkit for image loading and pixel buffer manipulation
 brew "gdk-pixbuf"
 # Distributed revision control system
@@ -57,10 +63,6 @@ brew "git-lfs"
 brew "git-remote-codecommit"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
-# Generate introspection data for GObject libraries
-brew "gobject-introspection"
-# OpenType text shaping engine
-brew "harfbuzz"
 # Framework for layout and rendering of i18n text
 brew "pango"
 # Library to render SVG files using Cairo
@@ -170,6 +172,8 @@ cask "logitech-options"
 cask "luminar-ai"
 # File system integration
 cask "macfuse"
+# Video format converter (transcoder)
+cask "makemkv"
 # Minimal installer for conda specific to conda-forge
 cask "miniforge"
 cask "mysides"
@@ -191,6 +195,8 @@ cask "tunnelblick"
 cask "veracrypt"
 # Open-source code editor
 cask "visual-studio-code"
+# Multimedia player
+cask "vlc"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "GIPHY CAPTURE", id: 668208984
