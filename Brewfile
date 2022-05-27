@@ -47,6 +47,8 @@ brew "dnsmasq", restart_service: true
 brew "docker", link: false
 # Modern replacement for 'ls'
 brew "exa"
+# Perl lib for reading and writing EXIF metadata
+brew "exiftool"
 # Generate introspection data for GObject libraries
 brew "gobject-introspection"
 # OpenType text shaping engine
@@ -107,6 +109,8 @@ brew "rust"
 brew "terraform"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
+# Internet file retriever
+brew "wget"
 # JavaScript package manager
 brew "yarn"
 # YAML syntax highlighter to bring colours where only jq could
@@ -137,6 +141,7 @@ cask "1password"
 cask "alfred"
 # HDR photo editor with filters, batch processing and more
 cask "aurora-hdr"
+# Integrated CAD, CAM, CAE, and PCB software
 cask "autodesk-fusion360"
 # Menu bar icon organizer
 cask "bartender"
@@ -162,6 +167,8 @@ cask "font-meslo-lg-nerd-font"
 cask "google-chrome"
 # Tools to protect your emails and files
 cask "gpg-suite"
+# Open-source video transcoder
+cask "handbrake"
 # HTTP and GraphQL Client
 cask "insomnia"
 # Terminal emulator as alternative to Apple's Terminal app
