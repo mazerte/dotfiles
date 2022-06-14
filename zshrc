@@ -27,7 +27,6 @@ setopt globDots
 # Create Aliases
 # Commons
 alias watch='watch --color ' # https://unix.stackexchange.com/questions/25327/watch-command-alias-expansion
-alias ls='exa'
 exists bat && alias cat='bat'
 exists batcat && alias cat='batcat'
 alias exa='exa -laFh --git'
@@ -415,3 +414,5 @@ fpath=($fpath ~/.zsh/completion)
 alias dotinstall="$DOTFILES/install"
 alias dotupdate="$DOTFILES/update"
 
+# Override Alias
+alias ls='exa'
