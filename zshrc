@@ -1,7 +1,11 @@
 # Set Variables
 unset PREFIX
 export NULLCMD=bat
-export DOTFILES="$HOME/.dotfiles"
+if [ -e /workspaces/.codespaces/.persistedshare/dotfiles ]; then
+  export DOTFILES="/workspaces/.codespaces/.persistedshare/dotfiles"
+else
+  export DOTFILES="$HOME/.dotfiles"
+fi
 
 # Change ZSH Options
 
@@ -408,6 +412,6 @@ autoload -Uz compinit && compinit
 fpath=($fpath ~/.zsh/completion)
 
 # Run dotfiles installer
-alias dotinstall="~/.dotfiles/install"
-alias dotupdate="~/.dotfiles/update"
+alias dotinstall="$DOTFILES/install"
+alias dotupdate="$DOTFILES/update"
 
