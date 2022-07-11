@@ -416,3 +416,5 @@ alias dotupdate="$DOTFILES/update"
 
 # Override Alias
 alias ls='exa'
+
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"

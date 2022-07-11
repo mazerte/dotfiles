@@ -77,8 +77,8 @@ if [[ "$CURRENT_OSTYPE" == "macos" ]] && [ $CURRENT_IS_DOCKER -eq 0 ]; then
   export PATH="/opt/homebrew/Cellar/rust/1.56.1/bin:$PATH"
   export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
   export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-  export PATH="$PATH:/opt/homebrew/bin"
-  export PATH="$PATH:/opt/homebrew/sbin"
+  export PATH="/opt/homebrew/bin:$PATH"
+  export PATH="/opt/homebrew/sbin:$PATH"
 fi
 export PATH="$HOME/.krew/bin:$PATH"
 export PATH="$PATH:$HOME/.cargo/bin"

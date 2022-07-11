@@ -23,4 +23,8 @@ golang.go
 keesschollaart.vscode-home-assistant
 ms-vscode-remote.remote-containers
 dnicolson.binary-plist
+mtxr.sqltools
+kj.sqltools-driver-redshift
+mtxr.sqltools-driver-mysql
+mtxr.sqltools-driver-pg
 
