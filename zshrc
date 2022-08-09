@@ -418,3 +418,7 @@ alias dotupdate="$DOTFILES/update"
 alias ls='exa'
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+if exists isengardcli; then
+  eval "$(isengardcli shell-profile)"
+fi
