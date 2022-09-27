@@ -27,4 +27,5 @@ mtxr.sqltools
 kj.sqltools-driver-redshift
 mtxr.sqltools-driver-mysql
 mtxr.sqltools-driver-pg
+gurumukhi.selected-lines-count
 
