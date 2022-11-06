@@ -23,8 +23,6 @@ brew "automake"
 brew "sqlite"
 # Integrated shell for working with the AWS CLI
 brew "aws-shell"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.9"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Official Amazon AWS command-line interface
@@ -35,6 +33,8 @@ brew "bash"
 brew "bat"
 # Core application library for C
 brew "glib"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
 # Cross-platform make
 brew "cmake"
 # GNU File, Shell, and Text utilities
@@ -49,10 +49,10 @@ brew "docker", link: false
 brew "exa"
 # Perl lib for reading and writing EXIF metadata
 brew "exiftool"
-# Generate introspection data for GObject libraries
-brew "gobject-introspection"
 # OpenType text shaping engine
 brew "harfbuzz"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
 # Toolkit for image loading and pixel buffer manipulation
@@ -99,6 +99,8 @@ brew "node"
 brew "nvm"
 # Tools for one-time password authentication systems
 brew "oath-toolkit"
+# Development kit for the Java programming language
+brew "openjdk"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
 # Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
@@ -139,10 +141,14 @@ brew "weaveworks/tap/eksctl"
 cask "1password"
 # Application launcher and productivity software
 cask "alfred"
+# Multi-track audio editor and recorder
+cask "audacity"
 # HDR photo editor with filters, batch processing and more
 cask "aurora-hdr"
 # Integrated CAD, CAM, CAE, and PCB software
 cask "autodesk-fusion360"
+# Tool to flash OS images to SD cards & USB drives
+cask "balenaetcher"
 # Menu bar icon organizer
 cask "bartender"
 # Web debugging Proxy application
@@ -161,7 +167,11 @@ cask "docker"
 cask "dropbox"
 # Enhance your RAW files to open up even more possibilities with Adobe Photoshop and Lightroom®
 cask "dxo-pureraw"
+# Control your Elgato Key Lights
+cask "elgato-control-center"
+# Free monospaced font with programming ligatures
 cask "font-fira-code"
+# Developer targeted fonts with a high number of glyphs
 cask "font-meslo-lg-nerd-font"
 # Web browser
 cask "google-chrome"
@@ -169,6 +179,8 @@ cask "google-chrome"
 cask "gpg-suite"
 # Open-source video transcoder
 cask "handbrake"
+# Vector graphics editor
+cask "inkscape"
 # HTTP and GraphQL Client
 cask "insomnia"
 # Terminal emulator as alternative to Apple's Terminal app
@@ -192,6 +204,8 @@ cask "prusaslicer"
 cask "session-manager-plugin"
 # Music streaming service
 cask "spotify"
+# DBMS-independent SQL query tool
+cask "sqlworkbenchj"
 # System monitor for the menu bar
 cask "stats"
 # Unleash your creative genius and make waves across Twitch and YouTube.
@@ -206,6 +220,7 @@ cask "visual-studio-code"
 cask "vlc"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "Disk Speed Test", id: 425264550
 mas "GIPHY CAPTURE", id: 668208984
 mas "Home Assistant", id: 1099568401
 mas "Reeder", id: 1449412482
@@ -213,3 +228,4 @@ mas "ScreenBrush", id: 1233965871
 mas "Slack", id: 803453959
 mas "Snappy", id: 512617038
 mas "Xcode", id: 497799835
+mas "DaVinci Resolve", id: 571213070
