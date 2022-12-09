@@ -85,7 +85,7 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:/usr/local/bin"
 
 
-if exists rvm; then
+if [ -f ~/.rvm/scripts/rvm ]; then
   # RVM
   source ~/.rvm/scripts/rvm
 fi
@@ -94,3 +94,5 @@ if exists rust; then
   # RSVM (Rust)
   [[ -s ~/.rsvm/rsvm.sh ]] && . ~/.rsvm/rsvm.sh
 fi
+
+export LC_CTYPE=en_US.UTF-8
