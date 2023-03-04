@@ -115,3 +115,17 @@ If package installation is stuck either in `Installing` or `Waiting` state, you 
 sudo rm /private/var/db/mds/system/mds.install.lock
 sudo killall -1 installd
 ```
+
+## Start an EC2 instance
+
+- Add a IAM Role with SSM
+- Enable "Allow tags in Metadata"
+- Add user-data
+- Connect to the instance using `mazerte` user (`sudo su mazerte`)
+
+### User data
+
+```
+#!/bin/bash
+curl https://raw.githubusercontent.com/mazerte/dotfiles/main/amzn/user-data.sh -sSf | bash
+```

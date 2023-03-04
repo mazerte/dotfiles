@@ -28,4 +28,6 @@ kj.sqltools-driver-redshift
 mtxr.sqltools-driver-mysql
 mtxr.sqltools-driver-pg
 gurumukhi.selected-lines-count
-
+vsciot-vscode.vscode-arduino
+ms-vscode.cpptools-extension-pack
+esphome.esphome-vscode

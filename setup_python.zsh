@@ -39,6 +39,7 @@ function create_or_update_env() {
 
 # default pip install
 pip install boto3
+pip install esphome
 
 # conda env
 create_or_update_env tensorflow ./conda/tensorflow-apple-metal.yml "Python 3.9 (tensorflow)"
