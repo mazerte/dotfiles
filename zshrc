@@ -50,6 +50,7 @@ if exists aws; then
   # AWS
   alias s3cat='_s3cat(){ aws s3 cp "$1" -;  unset -f _s3cat; }; _s3cat'
   alias ass='_ass(){ aws ssm start-session --target $(ec2 id $1);  unset -f _ass; }; _ass'
+  alias assm='_ass(){ aws ssm start-session --target $(ec2 id $1) --document-name MZT-SshSession;  unset -f _ass; }; _ass'
   alias assh='_assh(){ ssh mazerte@$(ec2 id $1);  unset -f _assh; }; _assh'
   alias apf='_apf(){ ssh -L ${1}:localhost:${2} -N mazerte@$(ec2 id $3);  unset -f _apf; }; _apf'
   function asspf() {
@@ -144,7 +145,7 @@ ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 export TERM="xterm-256color"
 
 prompt_canaconda () {
-  if exists rvm; then
+  if exists conda; then
     local msg
     if _p9k_python_version
     then
@@ -393,6 +394,23 @@ if [ -f /opt/homebrew/Caskroom/miniforge/base/bin/conda ]; then
   fi
   unset __conda_setup
   # <<< conda initialize <<<
+fi
+
+if [ -f /opt/conda/bin/conda ]; then
+  # >>> conda initialize >>>
+  # !! Contents within this block are managed by 'conda init' !!
+  __conda_setup="$('/opt/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+  else
+      if [ -f "/opt/conda/etc/profile.d/conda.sh" ]; then
+          . "/opt/conda/etc/profile.d/conda.sh"
+      else
+          export PATH="/opt/conda/bin:$PATH"
+      fi
+  fi
+  unset __conda_setup
+  # <<< conda initialize <<
 fi
 
 # ...and Other Surprises
