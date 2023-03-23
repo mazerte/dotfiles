@@ -159,7 +159,7 @@ prompt_canaconda () {
     fi
     local p=${CONDA_PREFIX:-$CONDA_ENV_PATH}
     local _env=`basename $p`
-    if ! [ -z "$p" ]  | [ "$_env" = "base" ] | [ "$_env" = "conda" ]; then
+    if ! [ -z "$p" ] && [ "$_env" != "base" ] && [ "$_env" != "conda" ]; then
         msg+="$_POWERLEVEL9K_ANACONDA_LEFT_DELIMITER$_env$_POWERLEVEL9K_ANACONDA_RIGHT_DELIMITER"
         _p9k_prompt_segment "$0" "blue" "$_p9k_color1" 'PYTHON_ICON' 0 '' "$msg"
     fi
