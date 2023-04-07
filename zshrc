@@ -55,7 +55,7 @@ if exists aws; then
   alias apf='_apf(){ ssh -L ${1}:localhost:${2} -N mazerte@$(ec2 id $3);  unset -f _apf; }; _apf'
   function asspf() {
     local instance=`ec2 id $1`
-    local params="{\"portNumber\": [\"$2\"], \"localPortNumber\": [\"$3\"]}"
+    local params="{\"portNumber\": [\"$2\"], \"localPortNumber\": [\"${3:-$2}\"]}"
     aws ssm start-session \
       --target $instance \
       --document-name AWS-StartPortForwardingSession \

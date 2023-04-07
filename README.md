@@ -116,7 +116,11 @@ sudo rm /private/var/db/mds/system/mds.install.lock
 sudo killall -1 installd
 ```
 
-## Start an EC2 instance
+# Usages
+
+## Run on EC2 Instance
+
+### Start an EC2 instance
 
 - Add a IAM Role with SSM
 - Enable "Allow tags in Metadata"
@@ -129,3 +133,13 @@ sudo killall -1 installd
 #!/bin/bash
 curl https://raw.githubusercontent.com/mazerte/dotfiles/main/amzn/user-data.sh -sSf | bash
 ```
+
+### Connect
+
+Use `ec2 ls` to get your instance name.
+Use `ass [instance-name]` to SSH using SSM.
+Use `asspf [instance-name] [remote-port] [local-port]` to create a port forwarding tunnel between your local computer in your EC2
+
+### Stop
+
+Use `ec2 stop [instance-name]`
