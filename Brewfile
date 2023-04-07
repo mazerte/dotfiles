@@ -141,8 +141,6 @@ brew "weaveworks/tap/eksctl"
 cask "1password"
 # Application launcher and productivity software
 cask "alfred"
-# Multi-track audio editor and recorder
-cask "audacity"
 # HDR photo editor with filters, batch processing and more
 cask "aurora-hdr"
 # Integrated CAD, CAM, CAE, and PCB software
@@ -179,8 +177,6 @@ cask "google-chrome"
 cask "gpg-suite"
 # Open-source video transcoder
 cask "handbrake"
-# Vector graphics editor
-cask "inkscape"
 # HTTP and GraphQL Client
 cask "insomnia"
 # Terminal emulator as alternative to Apple's Terminal app

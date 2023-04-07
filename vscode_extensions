@@ -14,7 +14,7 @@ sdras.night-owl
 ms-python.python
 ms-toolsai.jupyter
 rebornix.ruby
-rust-lang.rust
+rust-lang.rust-analyzer
 ms-azuretools.vscode-docker
 ms-kubernetes-tools.vscode-kubernetes-tools
 redhat.vscode-yaml
@@ -31,3 +31,4 @@ gurumukhi.selected-lines-count
 vsciot-vscode.vscode-arduino
 ms-vscode.cpptools-extension-pack
 esphome.esphome-vscode
+ms-vsliveshare.vsliveshare
