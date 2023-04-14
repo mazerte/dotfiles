@@ -34,6 +34,9 @@
     ~/.ssh:
       path: /Volumes/Secured/config/ssh/dot
       force: true
+    ~/.ssh/ssh-with-ssm.zsh:
+      path: ssh/ssh-with-ssm.zsh
+      force: true
     ~/.kube/config:
       path: /Volumes/Secured/config/kube/dot/config
       force: true

@@ -45,6 +45,15 @@ install-linux-packages() {
   fi
 }
 
+install-aws(){
+  ARCH="$(uname -m | sed -e 's/amd64/x86_64/' -e 's/\(arm\)\(64\)\?.*/\1\2/')"
+  curl "https://awscli.amazonaws.com/awscli-exe-linux-$ARCH.zip" -o "awscliv2.zip"
+  unzip awscliv2.zip
+  sudo ./aws/install
+  rm -rf ./aws
+  rm -f awscliv2.zip
+}
+
 install-antibody(){
   curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin
 }
@@ -69,6 +78,7 @@ finish() {
 
 start
 install-linux-packages
+install-aws
 install-antibody
 upgrade-packages
 finish

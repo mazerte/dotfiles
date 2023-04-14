@@ -21,7 +21,7 @@ redhat.vscode-yaml
 hashicorp.terraform
 golang.go
 keesschollaart.vscode-home-assistant
-ms-vscode-remote.remote-containers
+ms-vscode-remote.vscode-remote-extensionpack
 dnicolson.binary-plist
 mtxr.sqltools
 kj.sqltools-driver-redshift

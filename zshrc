@@ -24,6 +24,15 @@ setopt incAppendHistoryTime
 setopt autoCd
 setopt globDots
 
+function watchcmd() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: watchcmd <command>"
+    return 1
+  fi
+
+  watch "$@"
+}
+
 # Create Aliases
 # Commons
 alias watch='watch --color ' # https://unix.stackexchange.com/questions/25327/watch-command-alias-expansion
@@ -50,7 +59,7 @@ if exists aws; then
   # AWS
   alias s3cat='_s3cat(){ aws s3 cp "$1" -;  unset -f _s3cat; }; _s3cat'
   alias ass='_ass(){ aws ssm start-session --target $(ec2 id $1);  unset -f _ass; }; _ass'
-  alias assm='_ass(){ aws ssm start-session --target $(ec2 id $1) --document-name MZT-SshSession;  unset -f _ass; }; _ass'
+  alias assm='_ass(){ aws ssm start-session --target $(ec2 id $1) --document-name AWS-StartSSHSession;  unset -f _ass; }; _ass'
   alias assh='_assh(){ ssh mazerte@$(ec2 id $1);  unset -f _assh; }; _assh'
   alias apf='_apf(){ ssh -L ${1}:localhost:${2} -N mazerte@$(ec2 id $3);  unset -f _apf; }; _apf'
   function asspf() {
@@ -73,30 +82,38 @@ if exists aws; then
     fi
   }
   function ec2() {
+    param="$2"
+    if [ -p /dev/stdin ]; then
+      read -r param
+    fi
     case $1 in
       ls)
-        aws ec2 describe-instances | jq -r "[.Reservations[].Instances[] | first( . | select(.Tags[].Value | contains(\"$2\"))) | {Name:(.Tags[] | select(.Key == \"Name\") | .Value), Instance:.InstanceType, State: .State.Name, Id: .InstanceId, DNS: .PublicDnsName}]" | in2csv -f json | csvlook
+        aws ec2 describe-instances | jq -r "[.Reservations[].Instances[] | first( . | select(.Tags[].Value | contains(\"$param\"))) | {Name:(.Tags[] | select(.Key == \"Name\") | .Value), Instance:.InstanceType, State: .State.Name, Id: .InstanceId, DNS: .PublicDnsName}]" | in2csv -f json | csvlook
         ;;
       id)
-        aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=\"*$2*\"" | jq -r  ".Reservations[0].Instances[0].InstanceId"
+        aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=\"*$param*\"" | jq -r  ".Reservations[0].Instances[0].InstanceId"
         ;;
       public)
-        aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=\"*$2*\"" | jq -r  ".Reservations[0].Instances[0].PublicDnsName"
+        aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=\"*$param*\"" | jq -r  ".Reservations[0].Instances[0].PublicDnsName"
         ;;
       private)
-        aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=\"*$2*\"" | jq -r  ".Reservations[0].Instances[0].PrivateDnsName"
+        aws ec2 describe-instances --filters "Name=instance-state-name,Values=running" "Name=tag:Name,Values=\"*$param*\"" | jq -r  ".Reservations[0].Instances[0].PrivateDnsName"
         ;;
       id-all)
-        aws ec2 describe-instances --filters "Name=tag:Name,Values=\"*$2*\"" | jq -r  ".Reservations[0].Instances[0].InstanceId"
+        aws ec2 describe-instances --filters "Name=tag:Name,Values=\"*$param*\"" | jq -r  ".Reservations[0].Instances[0].InstanceId"
         ;;
       stop)
-        aws ec2 stop-instances --instance-ids $(ec2 id $2)
+        aws ec2 stop-instances --instance-ids $(ec2 id $param)
         ;;
       start)
-        aws ec2 start-instances --instance-ids $(ec2 id-all $2)
+        aws ec2 start-instances --instance-ids $(ec2 id-all $param)
         ;;
       terminate)
-        aws ec2 terminate-instances --instance-ids $(ec2 id $2)
+        aws ec2 terminate-instances --instance-ids $(ec2 id $param)
+        ;;
+      switch)
+        TYPE="$3"
+        aws ec2 modify-instance-attribute --instance-id $(ec2 id-all $param) --instance-type "{\"Value\": \"$TYPE\"}"
         ;;
     esac
   }

@@ -136,10 +136,29 @@ curl https://raw.githubusercontent.com/mazerte/dotfiles/main/amzn/user-data.sh -
 
 ### Connect
 
+#### SSH in terminal
+
 Use `ec2 ls` to get your instance name.
-Use `ass [instance-name]` to SSH using SSM.
+Use `assh [instance-name]` to SSH using SSM. This will use the `mazerte` user, use `ass` if you don't want to.
 Use `asspf [instance-name] [remote-port] [local-port]` to create a port forwarding tunnel between your local computer in your EC2
+
+#### From VSCode Remote-SSH
+
+Add host like `mazerte@[instance-name].ec2.[aws-profile].[aws-region]`.
+
+This work thanks to the configuration in `~/.ssh/config`
+
+```
+Host *.ec2.*.*
+  ProxyCommand zsh -c "~/.ssh/ssh-with-ssm.zsh %h %p"
+```
 
 ### Stop
 
 Use `ec2 stop [instance-name]`
+
+# Tips
+
+## ls (exa)
+
+Use `ls -T` to list files in multiple folders (tree)
