@@ -24,18 +24,31 @@ setopt incAppendHistoryTime
 setopt autoCd
 setopt globDots
 
-function watchcmd() {
-  if [[ -z "$1" ]]; then
-    echo "Usage: watchcmd <command>"
-    return 1
-  fi
-
-  watch "$@"
+function watchcmd () {
+    IN=2
+    case $1 in
+        -n)
+            IN=$2
+            shift 2
+            ;;
+    esac
+    printf '\033c' # clear
+    CM="$*"
+    LEFT="$(printf 'Every %.1f: %s' $IN $CM)"
+    ((PAD = COLUMNS - ${#LEFT}))
+    while :
+    do
+        DT=$(date)
+        printf "$LEFT%${PAD}s\n" "$HOST $(date)"
+        eval "$CM"
+        sleep $IN
+        printf '\033c'
+    done
 }
 
 # Create Aliases
 # Commons
-alias watch='watch --color ' # https://unix.stackexchange.com/questions/25327/watch-command-alias-expansion
+alias watch='watchcmd' # https://unix.stackexchange.com/questions/25327/watch-command-alias-expansion
 exists bat && alias cat='bat'
 exists batcat && alias cat='batcat'
 alias exa='exa -laFh --git'
