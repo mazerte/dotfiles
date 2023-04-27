@@ -51,8 +51,8 @@ brew "exa"
 brew "exiftool"
 # OpenType text shaping engine
 brew "harfbuzz"
-# Generate introspection data for GObject libraries
-brew "gobject-introspection"
+# Framework for layout and rendering of i18n text
+brew "pango"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
 # Toolkit for image loading and pixel buffer manipulation
@@ -65,8 +65,8 @@ brew "git-lfs"
 brew "git-remote-codecommit"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
-# Framework for layout and rendering of i18n text
-brew "pango"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
 # Library to render SVG files using Cairo
 brew "librsvg"
 # Graph visualization software from AT&T and Bell Labs
@@ -117,7 +117,7 @@ brew "wget"
 brew "yarn"
 # YAML syntax highlighter to bring colours where only jq could
 brew "yh"
-# Process YAML documents from the CLI
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
 # General-purpose lossless data-compression library
 brew "zlib"
@@ -129,6 +129,8 @@ brew "amazon/amazon/isengard-cli"
 brew "benwebber/tunnelblickctl/tunnelblickctl"
 # Bash scripts that integrate bat with various command-line tools
 brew "eth-p/software/bat-extras"
+# Colorize your kubectl output
+brew "hidetatz/tap/kubecolor"
 # Open the AWS console with your CLI credentials where your needed to be!
 brew "mazerte/software/aws-console"
 # Easy CLI to create and manage vpn connection to your AWS VPC
@@ -141,6 +143,10 @@ brew "weaveworks/tap/eksctl"
 cask "1password"
 # Application launcher and productivity software
 cask "alfred"
+# Electronics prototyping platform
+cask "arduino"
+# Electronics prototyping platform
+cask "arduino-ide"
 # HDR photo editor with filters, batch processing and more
 cask "aurora-hdr"
 # Integrated CAD, CAM, CAE, and PCB software
@@ -196,6 +202,8 @@ cask "mysides"
 cask "optyx"
 # G-code generator for 3D printers (RepRap, Makerbot, Ultimaker etc.)
 cask "prusaslicer"
+# Configure RØDE device settings, features, functions, and firmware
+cask "rode-central"
 # Plugin for AWS CLI to start and end sessions that connect to managed instances
 cask "session-manager-plugin"
 # Music streaming service
@@ -216,6 +224,7 @@ cask "visual-studio-code"
 cask "vlc"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "DaVinci Resolve", id: 571213070
 mas "Disk Speed Test", id: 425264550
 mas "GIPHY CAPTURE", id: 668208984
 mas "Home Assistant", id: 1099568401
@@ -223,5 +232,5 @@ mas "Reeder", id: 1449412482
 mas "ScreenBrush", id: 1233965871
 mas "Slack", id: 803453959
 mas "Snappy", id: 512617038
+mas "TeleprompterPAD", id: 1507218595
 mas "Xcode", id: 497799835
-mas "DaVinci Resolve", id: 571213070
