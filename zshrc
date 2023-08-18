@@ -130,6 +130,38 @@ if exists aws; then
         ;;
     esac
   }
+
+  function ecs() {
+    param="$2"
+    if [ -p /dev/stdin ]; then
+      read -r param
+    fi
+    case $1 in
+      ls)
+        aws ecs describe-clusters --clusters $(aws ecs list-clusters | jq -r ".clusterArns | join(\" \")") | jq -r "[.clusters[] | {Name:.clusterName, Status:.status}]"  | in2csv -f json | csvlook
+        ;;
+      id)
+        aws ecs list-clusters | jq -r '.clusterArns[]' | grep $param
+        ;;
+      services)
+        aws ecs describe-services --cluster $(ecs id $param) --services $(aws ecs list-services --cluster $(ecs id Infra) | jq -r '.serviceArns | join(" ")') | jq -r "[.services[] | {Name:.serviceName, Status:.status, TasksCount:.runningCount, TaskDefinition:.taskDefinition}]" | in2csv -f json | csvlook
+        ;;
+      service-id)
+        aws ecs list-services --cluster $(ecs id $param) | jq -r ".serviceArns[]" | grep $3
+        ;;
+      task-id)
+        aws ecs list-tasks --cluster $(ecs id $param) --service $(ecs service-id $param $3) | jq -r ".taskArns[0]"
+        ;;
+      ssh)
+        aws ecs execute-command  \
+          --cluster $(ecs id $param) \
+          --task $(ecs task-id $param $3) \
+          --container $4 \
+          --command "/bin/bash" \
+          --interactive
+        ;;
+    esac
+  }
 fi
 
 if exists kubectl; then
