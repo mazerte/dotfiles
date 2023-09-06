@@ -4,11 +4,9 @@ tap "eth-p/software"
 tap "hashicorp/tap"
 tap "hidetatz/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
-tap "homebrew/core"
 tap "homebrew/services"
 tap "mazerte/software"
 tap "sambadevi/powerlevel9k"
@@ -21,8 +19,12 @@ brew "autoconf"
 brew "automake"
 # Command-line interface for SQLite
 brew "sqlite"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
 # Integrated shell for working with the AWS CLI
 brew "aws-shell"
+# Text processing system for reStructuredText
+brew "docutils"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Official Amazon AWS command-line interface
@@ -45,6 +47,8 @@ brew "csvkit"
 brew "dnsmasq", restart_service: true
 # Pack, ship and run any application as a lightweight container
 brew "docker", link: false
+# C library implementing the SSH2 protocol
+brew "libssh2"
 # Modern replacement for 'ls'
 brew "exa"
 # Perl lib for reading and writing EXIF metadata
@@ -83,6 +87,8 @@ brew "jq"
 brew "less"
 # X.509 and CMS library
 brew "libksba"
+# XML security library
+brew "libxmlsec1"
 # Keep your Mac's application settings in sync
 brew "mackup"
 # Utility for directing compilation
@@ -105,6 +111,8 @@ brew "openjdk"
 brew "pinentry-mac"
 # Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
 brew "prettier"
+# Persistent key-value database, with built-in net interface
+brew "redis"
 # Safe, concurrent, practical language
 brew "rust"
 # Tool to build, change, and version infrastructure
@@ -171,7 +179,7 @@ cask "docker"
 cask "dropbox"
 # Enhance your RAW files to open up even more possibilities with Adobe Photoshop and Lightroom®
 cask "dxo-pureraw"
-# Control your Elgato Key Lights
+# Control your Elgato key lights
 cask "elgato-control-center"
 # Free monospaced font with programming ligatures
 cask "font-fira-code"
@@ -234,3 +242,57 @@ mas "Slack", id: 803453959
 mas "Snappy", id: 512617038
 mas "TeleprompterPAD", id: 1507218595
 mas "Xcode", id: 497799835
+vscode "amazonwebservices.aws-toolkit-vscode"
+vscode "chrmarti.regex"
+vscode "dbaeumer.vscode-eslint"
+vscode "dnicolson.binary-plist"
+vscode "donjayamanne.githistory"
+vscode "eamodio.gitlens"
+vscode "EditorConfig.EditorConfig"
+vscode "esbenp.prettier-vscode"
+vscode "ESPHome.esphome-vscode"
+vscode "GitHub.codespaces"
+vscode "golang.go"
+vscode "gurumukhi.selected-lines-count"
+vscode "hashicorp.terraform"
+vscode "johnpapa.vscode-peacock"
+vscode "keesschollaart.vscode-home-assistant"
+vscode "kj.sqltools-driver-redshift"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
+vscode "ms-python.isort"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode-remote.remote-wsl"
+vscode "ms-vscode-remote.vscode-remote-extensionpack"
+vscode "ms-vscode.cmake-tools"
+vscode "ms-vscode.cpptools"
+vscode "ms-vscode.cpptools-extension-pack"
+vscode "ms-vscode.cpptools-themes"
+vscode "ms-vscode.remote-explorer"
+vscode "ms-vscode.remote-server"
+vscode "ms-vscode.vscode-serial-monitor"
+vscode "ms-vscode.vscode-typescript-tslint-plugin"
+vscode "ms-vsliveshare.vsliveshare"
+vscode "mtxr.sqltools"
+vscode "mtxr.sqltools-driver-mysql"
+vscode "mtxr.sqltools-driver-pg"
+vscode "pranaygp.vscode-css-peek"
+vscode "rebornix.ruby"
+vscode "redhat.vscode-yaml"
+vscode "rust-lang.rust-analyzer"
+vscode "sdras.night-owl"
+vscode "techer.open-in-browser"
+vscode "twxs.cmake"
+vscode "vsciot-vscode.vscode-arduino"
+vscode "vscode-icons-team.vscode-icons"
+vscode "wayou.vscode-todo-highlight"
+vscode "wingrunr21.vscode-ruby"

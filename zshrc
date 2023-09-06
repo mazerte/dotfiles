@@ -83,6 +83,34 @@ if exists aws; then
       --document-name AWS-StartPortForwardingSession \
       --parameters $params
   }
+  function asspftohost() {
+    local instance=`ec2 id $1`
+    local params="{\"portNumber\": [\"$2\"], \"localPortNumber\": [\"$3\"], \"host\":[\"$4\"]}}"
+    aws ssm start-session \
+      --target $instance \
+      --document-name AWS-StartPortForwardingSessionToRemoteHost \
+      --parameters $params
+  }
+  function ecspf() {
+    local cluster=`ecs id $1 | awk -F"/" '{print $NF}'`
+    local task=`ecs task-id $1 $2 | awk -F"/" '{print $NF}'`
+    local container=`ecs task-runtime-id $1 $2 $3`
+    local params="{\"portNumber\": [\"$4\"], \"localPortNumber\": [\"${5:-$4}\"]}"
+    aws ssm start-session \
+      --target "ecs:${cluster}_${task}_${container}" \
+      --document-name AWS-StartPortForwardingSession \
+      --parameters $params
+  }
+  function ecspftohost() {
+    local cluster=`ecs id $1 | awk -F"/" '{print $NF}'`
+    local task=`ecs task-id $1 $2 | awk -F"/" '{print $NF}'`
+    local container=`ecs task-runtime-id $1 $2 $3`
+    local params="{\"portNumber\": [\"$4\"], \"localPortNumber\": [\"$5\"], \"host\":[\"$6\"]}"
+    aws ssm start-session \
+      --target "ecs:${cluster}_${task}_${container}" \
+      --document-name AWS-StartPortForwardingSessionToRemoteHost \
+      --parameters $params
+  }
   function asr() {
     if exists aws; then
       if [[ -z "$1" ]]; then
@@ -151,6 +179,9 @@ if exists aws; then
         ;;
       task-id)
         aws ecs list-tasks --cluster $(ecs id $param) --service $(ecs service-id $param $3) | jq -r ".taskArns[0]"
+        ;;
+      task-runtime-id)
+        aws ecs describe-tasks --cluster $(ecs id $param) --task $(ecs task-id $param $3) | jq -r ".tasks[0].containers[] | select(.name=\"$4\") | .runtimeId"
         ;;
       ssh)
         aws ecs execute-command  \
