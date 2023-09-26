@@ -17,6 +17,8 @@ brew "antibody"
 brew "autoconf"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
+# Nuke a whole AWS account and delete all its resources
+brew "aws-nuke"
 # Command-line interface for SQLite
 brew "sqlite"
 # Interpreted, interactive, object-oriented programming language
