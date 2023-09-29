@@ -1,18 +1,16 @@
-tap "amazon/amazon", "ssh://git.amazon.com/pkg/HomebrewAmazon"
 tap "benwebber/tunnelblickctl"
 tap "eth-p/software"
 tap "hashicorp/tap"
 tap "hidetatz/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
 tap "mazerte/software"
 tap "sambadevi/powerlevel9k"
 tap "weaveworks/tap"
-# Shell plugin manager
-brew "antibody"
+# Plugin manager for zsh, inspired by antigen and antibody
+brew "antidote"
 # Automatic configure script builder
 brew "autoconf"
 # Tool for generating GNU Standards-compliant Makefiles
@@ -21,24 +19,22 @@ brew "automake"
 brew "aws-nuke"
 # Command-line interface for SQLite
 brew "sqlite"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
-# Integrated shell for working with the AWS CLI
-brew "aws-shell"
 # Text processing system for reStructuredText
 brew "docutils"
+# Integrated shell for working with the AWS CLI
+brew "aws-shell"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Official Amazon AWS command-line interface
 brew "awscli@1"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
+# C library implementing the SSH2 protocol
+brew "libssh2"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Core application library for C
 brew "glib"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.9"
 # Cross-platform make
 brew "cmake"
 # GNU File, Shell, and Text utilities
@@ -49,8 +45,6 @@ brew "csvkit"
 brew "dnsmasq", restart_service: true
 # Pack, ship and run any application as a lightweight container
 brew "docker", link: false
-# C library implementing the SSH2 protocol
-brew "libssh2"
 # Modern replacement for 'ls'
 brew "exa"
 # Perl lib for reading and writing EXIF metadata
@@ -109,10 +103,16 @@ brew "nvm"
 brew "oath-toolkit"
 # Development kit for the Java programming language
 brew "openjdk"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@1.1"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
 # Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
 brew "prettier"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
 # Persistent key-value database, with built-in net interface
 brew "redis"
 # Safe, concurrent, practical language
@@ -133,8 +133,6 @@ brew "yq"
 brew "zlib"
 # UNIX shell (command interpreter)
 brew "zsh"
-# Isengard-cli command line interface to Isengard
-brew "amazon/amazon/isengard-cli"
 # Command-line interface for Tunnelblick
 brew "benwebber/tunnelblickctl/tunnelblickctl"
 # Bash scripts that integrate bat with various command-line tools
@@ -152,7 +150,7 @@ brew "weaveworks/tap/eksctl"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Application launcher and productivity software
-cask "alfred"
+cask "alfred4"
 # Electronics prototyping platform
 cask "arduino"
 # Electronics prototyping platform
@@ -167,8 +165,6 @@ cask "balenaetcher"
 cask "bartender"
 # Web debugging Proxy application
 cask "charles"
-# Bitfocus Companion enables the reasonably priced Elgato Streamdeck to be a professional shotbox surface for an increasing amount of different presentation switchers, video playback software and broadcast equipment.
-cask "companion"
 # Browser for SQLite databases
 cask "db-browser-for-sqlite"
 # Voice and text chat software
@@ -187,6 +183,8 @@ cask "elgato-control-center"
 cask "font-fira-code"
 # Developer targeted fonts with a high number of glyphs
 cask "font-meslo-lg-nerd-font"
+# Fujitsu ScanSnap Scanner software
+cask "fujitsu-scansnap-home"
 # Web browser
 cask "google-chrome"
 # Tools to protect your emails and files
@@ -212,8 +210,6 @@ cask "mysides"
 cask "optyx"
 # G-code generator for 3D printers (RepRap, Makerbot, Ultimaker etc.)
 cask "prusaslicer"
-# Configure RØDE device settings, features, functions, and firmware
-cask "rode-central"
 # Plugin for AWS CLI to start and end sessions that connect to managed instances
 cask "session-manager-plugin"
 # Music streaming service
@@ -222,8 +218,6 @@ cask "spotify"
 cask "sqlworkbenchj"
 # System monitor for the menu bar
 cask "stats"
-# Unleash your creative genius and make waves across Twitch and YouTube.
-cask "stream-deck"
 # Free and open-source OpenVPN client
 cask "tunnelblick"
 # Disk encryption software focusing on security based on TrueCrypt
@@ -232,6 +226,8 @@ cask "veracrypt"
 cask "visual-studio-code"
 # Multimedia player
 cask "vlc"
+# Native desktop client for WhatsApp
+cask "whatsapp"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "DaVinci Resolve", id: 571213070
@@ -241,7 +237,6 @@ mas "Home Assistant", id: 1099568401
 mas "Reeder", id: 1449412482
 mas "ScreenBrush", id: 1233965871
 mas "Slack", id: 803453959
-mas "Snappy", id: 512617038
 mas "TeleprompterPAD", id: 1507218595
 mas "Xcode", id: 497799835
 vscode "amazonwebservices.aws-toolkit-vscode"

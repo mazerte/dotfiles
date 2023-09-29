@@ -451,8 +451,8 @@ if exists nvm; then
   load-nvmrc
 fi
 
-source <(antibody init)
-antibody bundle < "$DOTFILES/antibody_plugins"
+source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+antidote load "$DOTFILES/antibody_plugins"
 
 # Set oh-my-zsh path
 plugins=(
@@ -461,7 +461,7 @@ plugins=(
   kubectl
   terraform
 )
-ZSH=$(antibody path ohmyzsh/ohmyzsh)
+ZSH=$(antidote path ohmyzsh/ohmyzsh)
 # ZSH_THEME="powerlevel9k/powerlevel9k"
 
 if exists aws && exists brew; then
