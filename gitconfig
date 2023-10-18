@@ -193,3 +193,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+[user]
+	name = Mathieu Desvé
+	email = mathieu.desve@gmail.com

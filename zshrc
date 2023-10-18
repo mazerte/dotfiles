@@ -122,6 +122,15 @@ if exists aws; then
       export AWS_DEFAULT_REGION=$1
     fi
   }
+  function aar() {
+    local account=`aws sts get-caller-identity | jq -r ".Account"`
+    local identity=`aws sts assume-role --role-arn "arn:aws:iam::${account}:role/$1" --role-session-name aws-cli`
+    local access_key_id=`echo $identity | jq -r .Credentials.AccessKeyId`
+    local secret_access_key=`echo $identity | jq -r .Credentials.SecretAccessKey`
+    local session_token=`echo $identity | jq -r .Credentials.SessionToken`
+    echo "Switch to arn:aws:iam::${account}:role/$1 to exit tap CTRL-D"
+    AWS_ACCESS_KEY_ID=$access_key_id AWS_SECRET_ACCESS_KEY=$secret_access_key AWS_SESSION_TOKEN=$session_token AWS_PROFILE=$1 zsh -l
+  }
   function ec2() {
     param="$2"
     if [ -p /dev/stdin ]; then
