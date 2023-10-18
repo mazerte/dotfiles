@@ -129,7 +129,7 @@ if exists aws; then
     local secret_access_key=`echo $identity | jq -r .Credentials.SecretAccessKey`
     local session_token=`echo $identity | jq -r .Credentials.SessionToken`
     echo "Switch to arn:aws:iam::${account}:role/$1 to exit tap CTRL-D"
-    AWS_ACCESS_KEY_ID=$access_key_id AWS_SECRET_ACCESS_KEY=$secret_access_key AWS_SESSION_TOKEN=$session_token AWS_PROFILE=$1 zsh -l
+    AWS_ACCESS_KEY_ID=$access_key_id AWS_SECRET_ACCESS_KEY=$secret_access_key AWS_SESSION_TOKEN=$session_token AWS_ASSUMED_ROLE=$1 zsh -l
   }
   function ec2() {
     param="$2"
@@ -323,7 +323,7 @@ prompt_caws() {
     else
       local aws_region=`aws configure get region`
       local _region="${AWS_DEFAULT_REGION:-$aws_region}"
-      local aws_profile="${AWS_PROFILE:-$AWS_DEFAULT_PROFILE}"
+      local aws_profile="${AWS_ASSUMED_ROLE:-${AWS_PROFILE:-$AWS_DEFAULT_PROFILE}}"
     fi
 
     if [[ -n "$aws_profile" ]]; then
