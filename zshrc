@@ -225,6 +225,8 @@ fi
 if exists terraform; then
   # Terraform
   alias tfaa='terraform apply -auto-approve'
+  alias tfw='terraform workspace list'
+  alias tfws='terraform workspace select'
 fi
 
 # Write Handy Functions
