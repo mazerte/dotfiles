@@ -466,8 +466,8 @@ if [ -f "/opt/homebrew/opt/antidote/share/antidote/antidote.zsh" ]; then
   source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
   antidote load "$DOTFILES/antibody_plugins"
 fi
-if [ -f "/home/mazerte/.antidote" ]; then
-  source /home/mazerte/.antidote
+if [ -f "/home/mazerte/.antidote/antidote.zsh" ]; then
+  source /home/mazerte/.antidote/antidote.zsh
   antidote load "$DOTFILES/antibody_plugins"
 fi
 
