@@ -462,8 +462,14 @@ if exists nvm; then
   load-nvmrc
 fi
 
-source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
-antidote load "$DOTFILES/antibody_plugins"
+if [ -f "/opt/homebrew/opt/antidote/share/antidote/antidote.zsh" ]; then
+  source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
+  antidote load "$DOTFILES/antibody_plugins"
+fi
+if [ -f "/home/mazerte/.antidote" ]; then
+  source /home/mazerte/.antidote
+  antidote load "$DOTFILES/antibody_plugins"
+fi
 
 # Set oh-my-zsh path
 plugins=(

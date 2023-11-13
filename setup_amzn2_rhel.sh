@@ -47,12 +47,12 @@ install-kubecolor(){
 install-pip-packages(){
   sudo pip3 install awscli
   sudo pip3 install sqlalchemy
-  sudo easy_install csvkit
-  sudo easy_install-3 csvkit
+  sudo pip3 csvkit
 }
 
 install-antibody(){
   curl -sfL git.io/antibody | sudo sh -s - -b /usr/local/bin
+  git clone --depth=1 https://github.com/mattmc3/antidote.git /home/mazerte/.antidote
 }
 
 upgrade-packages() {
