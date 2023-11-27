@@ -181,7 +181,7 @@ if exists aws; then
         aws ecs list-clusters | jq -r '.clusterArns[]' | grep $param
         ;;
       services)
-        aws ecs describe-services --cluster $(ecs id $param) --services $(aws ecs list-services --cluster $(ecs id Infra) | jq -r '.serviceArns | join(" ")') | jq -r "[.services[] | {Name:.serviceName, Status:.status, TasksCount:.runningCount, TaskDefinition:.taskDefinition}]" | in2csv -f json | csvlook
+        aws ecs describe-services --cluster $(ecs id $param) --services $(aws ecs list-services --cluster $(ecs id $param) | jq -r '.serviceArns | join(" ")') | jq -r "[.services[] | {Name:.serviceName, Status:.status, TasksCount:.runningCount, TaskDefinition:.taskDefinition}]" | in2csv -f json | csvlook
         ;;
       service-id)
         aws ecs list-services --cluster $(ecs id $param) | jq -r ".serviceArns[]" | grep $3

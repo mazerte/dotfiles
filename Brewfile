@@ -17,12 +17,14 @@ brew "autoconf"
 brew "automake"
 # Nuke a whole AWS account and delete all its resources
 brew "aws-nuke"
-# Command-line interface for SQLite
-brew "sqlite"
 # Text processing system for reStructuredText
 brew "docutils"
 # Integrated shell for working with the AWS CLI
 brew "aws-shell"
+# C parser in Python
+brew "pycparser"
+# C Foreign Function Interface for Python
+brew "cffi"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Official Amazon AWS command-line interface
@@ -35,6 +37,14 @@ brew "libssh2"
 brew "bat"
 # Core application library for C
 brew "glib"
+# OpenType text shaping engine
+brew "harfbuzz"
+# Development kit for the Java programming language
+brew "openjdk"
+# Remove large files or passwords from Git history like git-filter-branch
+brew "bfg"
+# Statistics utility to count lines of code
+brew "cloc"
 # Cross-platform make
 brew "cmake"
 # GNU File, Shell, and Text utilities
@@ -49,10 +59,10 @@ brew "docker", link: false
 brew "exa"
 # Perl lib for reading and writing EXIF metadata
 brew "exiftool"
-# OpenType text shaping engine
-brew "harfbuzz"
 # Framework for layout and rendering of i18n text
 brew "pango"
+# OCR (Optical Character Recognition) engine
+brew "tesseract"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
 # Toolkit for image loading and pixel buffer manipulation
@@ -101,8 +111,6 @@ brew "node"
 brew "nvm"
 # Tools for one-time password authentication systems
 brew "oath-toolkit"
-# Development kit for the Java programming language
-brew "openjdk"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
 # Pinentry for GPG on Mac
@@ -205,11 +213,15 @@ cask "macfuse"
 cask "makemkv"
 # Minimal installer for conda specific to conda-forge
 cask "miniforge"
+# French TV streaming service
+cask "molotov"
 cask "mysides"
 # Cull 1000 photos in 60 seconds.
 cask "optyx"
 # G-code generator for 3D printers (RepRap, Makerbot, Ultimaker etc.)
 cask "prusaslicer"
+# GUI for streamlined Redis application development
+cask "redisinsight"
 # Plugin for AWS CLI to start and end sessions that connect to managed instances
 cask "session-manager-plugin"
 # Music streaming service
@@ -249,6 +261,7 @@ vscode "EditorConfig.EditorConfig"
 vscode "esbenp.prettier-vscode"
 vscode "ESPHome.esphome-vscode"
 vscode "GitHub.codespaces"
+vscode "github.vscode-github-actions"
 vscode "golang.go"
 vscode "gurumukhi.selected-lines-count"
 vscode "hashicorp.terraform"
@@ -282,6 +295,7 @@ vscode "ms-vsliveshare.vsliveshare"
 vscode "mtxr.sqltools"
 vscode "mtxr.sqltools-driver-mysql"
 vscode "mtxr.sqltools-driver-pg"
+vscode "Orta.vscode-jest"
 vscode "pranaygp.vscode-css-peek"
 vscode "rebornix.ruby"
 vscode "redhat.vscode-yaml"
