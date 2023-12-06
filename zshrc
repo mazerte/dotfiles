@@ -131,6 +131,12 @@ if exists aws; then
     echo "Switch to arn:aws:iam::${account}:role/$1 to exit tap CTRL-D"
     AWS_ACCESS_KEY_ID=$access_key_id AWS_SECRET_ACCESS_KEY=$secret_access_key AWS_SESSION_TOKEN=$session_token AWS_ASSUMED_ROLE=$1 zsh -l
   }
+  function ecr-login() {
+    local account=`aws sts get-caller-identity | jq -r ".Account"`
+    local aws_region=`aws configure get region`
+    local _region="${AWS_DEFAULT_REGION:-$aws_region}"
+    aws ecr get-login-password --region $_region | docker login --username AWS --password-stdin $account.dkr.ecr.$_region.amazonaws.com
+  }
   function ec2() {
     param="$2"
     if [ -p /dev/stdin ]; then
