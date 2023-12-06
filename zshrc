@@ -135,7 +135,15 @@ if exists aws; then
     local account=`aws sts get-caller-identity | jq -r ".Account"`
     local aws_region=`aws configure get region`
     local _region="${AWS_DEFAULT_REGION:-$aws_region}"
-    aws ecr get-login-password --region $_region | docker login --username AWS --password-stdin $account.dkr.ecr.$_region.amazonaws.com
+    export ECR_URL=$account.dkr.ecr.$_region.amazonaws.com
+    aws ecr get-login-password --region $_region | docker login --username AWS --password-stdin $ECR_URL
+    echo "ECR_URL=$ECR_URL"
+  }
+  function ecr-push-image() {
+    # USAGE: ecr-push-image <image_hash> <reposirtory_name>:<tag>
+    ecr-login
+    docker tag $1 "$ECR_URL/$2"
+    docker push "$ECR_URL/$2"
   }
   function ec2() {
     param="$2"
