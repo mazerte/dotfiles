@@ -73,7 +73,7 @@ if exists aws; then
   alias s3cat='_s3cat(){ aws s3 cp "$1" -;  unset -f _s3cat; }; _s3cat'
   alias ass='_ass(){ aws ssm start-session --target $(ec2 id $1);  unset -f _ass; }; _ass'
   alias assm='_ass(){ aws ssm start-session --target $(ec2 id $1) --document-name AWS-StartSSHSession;  unset -f _ass; }; _ass'
-  alias assh='_assh(){ ssh mazerte@$(ec2 id $1);  unset -f _assh; }; _assh'
+  alias assh='_assh(){ ssh ssm-user@$(ec2 id $1);  unset -f _assh; }; _assh'
   alias apf='_apf(){ ssh -L ${1}:localhost:${2} -N mazerte@$(ec2 id $3);  unset -f _apf; }; _apf'
   function asspf() {
     local instance=`ec2 id $1`

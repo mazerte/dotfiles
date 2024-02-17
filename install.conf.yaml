@@ -37,6 +37,9 @@
     ~/.ssh/ssh-with-ssm.zsh:
       path: ssh/ssh-with-ssm.zsh
       force: true
+    ~/.ssh/aws-ssm-ec2-proxy-command.zsh:
+      path: ssh/aws-ssm-ec2-proxy-command.zsh
+      force: true
     ~/.kube/config:
       path: /Volumes/Secured/config/kube/dot/config
       force: true
