@@ -216,6 +216,10 @@ if exists aws; then
         ;;
     esac
   }
+
+  function atail() {
+    /opt/homebrew/opt/awscli@2/bin/aws logs tail $(aws logs describe-log-groups  --query "logGroups[?contains(logGroupName, '$1')] | [0].logGroupName" --output text) --follow
+  }
 fi
 
 if exists kubectl; then
