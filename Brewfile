@@ -234,6 +234,8 @@ cask "raspberry-pi-imager"
 cask "redisinsight"
 # Plugin for AWS CLI to start and end sessions that connect to managed instances
 cask "session-manager-plugin"
+# Instant messaging application focusing on security
+cask "signal"
 # Music streaming service
 cask "spotify"
 # DBMS-independent SQL query tool

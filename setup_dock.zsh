@@ -17,6 +17,7 @@ defaults write com.apple.dock \
                                       "$(__dock_item /Applications/VeraCrypt.app)" \
                                       "$(__dock_item /Applications/1Password.app)" \
                                       "$(__dock_item /Applications/Whatsapp.app)" \
+                                      "$(__dock_item /Applications/Signal.app)" \
                                       "$(__dock_item /Applications/Slack.app)" \
                                       "$(__dock_item /Applications/Discord.app)" \
                                       "$(__dock_item /Applications/iTerm.app)" \
@@ -30,6 +31,7 @@ printf '%s' 'Setting up Startup items...'
 
 # osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Alfred 4.app", hidden:true}'
 osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Whatsapp.app", hidden:true}'
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Signal.app", hidden:true}'
 osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Discord.app", hidden:true}'
 osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Slack.app", hidden:true}'
 osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Dropbox.app", hidden:true}'
