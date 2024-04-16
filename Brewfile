@@ -21,10 +21,6 @@ brew "aws-nuke"
 brew "docutils"
 # Integrated shell for working with the AWS CLI
 brew "aws-shell"
-# C parser in Python
-brew "pycparser"
-# C Foreign Function Interface for Python
-brew "cffi"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Official Amazon AWS command-line interface
@@ -36,13 +32,17 @@ brew "libssh2"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Core application library for C
-brew "glib"
+brew "glib", link: false
 # OpenType text shaping engine
 brew "harfbuzz"
 # Development kit for the Java programming language
 brew "openjdk"
 # Remove large files or passwords from Git history like git-filter-branch
 brew "bfg"
+# C parser in Python
+brew "pycparser"
+# C Foreign Function Interface for Python
+brew "cffi"
 # Statistics utility to count lines of code
 brew "cloc"
 # Cross-platform make
@@ -75,6 +75,8 @@ brew "git-lfs"
 brew "git-remote-codecommit"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # Generate introspection data for GObject libraries
 brew "gobject-introspection"
 # Library to render SVG files using Cairo
@@ -93,6 +95,8 @@ brew "jq"
 brew "less"
 # X.509 and CMS library
 brew "libksba"
+# Library for USB device access
+brew "libusb"
 # XML security library
 brew "libxmlsec1"
 # Keep your Mac's application settings in sync
@@ -166,10 +170,10 @@ cask "arduino-ide"
 # HDR photo editor with filters, batch processing and more
 cask "aurora-hdr"
 # Integrated CAD, CAM, CAE, and PCB software
-cask "autodesk-fusion360"
+cask "autodesk-fusion"
 # Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
-# Menu bar icon organizer
+# Menu bar icon organiser
 cask "bartender"
 # Web debugging Proxy application
 cask "charles"
@@ -179,7 +183,7 @@ cask "db-browser-for-sqlite"
 cask "discord"
 # Drivers for DisplayLink docks, adapters and monitors
 cask "displaylink"
-# App to build and share containerized applications and microservices
+# App to build and share containerised applications and microservices
 cask "docker"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
@@ -197,6 +201,8 @@ cask "fujitsu-scansnap-home"
 cask "google-chrome"
 # Tools to protect your emails and files
 cask "gpg-suite"
+# GPS log file viewer and analyzer
+cask "gpxsee"
 # Open-source video transcoder
 cask "handbrake"
 # HTTP and GraphQL Client
@@ -216,10 +222,14 @@ cask "miniforge"
 # French TV streaming service
 cask "molotov"
 cask "mysides"
+# Open-source software for live streaming and screen recording
+cask "obs"
 # Cull 1000 photos in 60 seconds.
 cask "optyx"
 # G-code generator for 3D printers (RepRap, Makerbot, Ultimaker etc.)
 cask "prusaslicer"
+# Imaging utility to install operating systems to a microSD card
+cask "raspberry-pi-imager"
 # GUI for streamlined Redis application development
 cask "redisinsight"
 # Plugin for AWS CLI to start and end sessions that connect to managed instances
@@ -230,6 +240,8 @@ cask "spotify"
 cask "sqlworkbenchj"
 # System monitor for the menu bar
 cask "stats"
+# Unpacks archive files
+cask "the-unarchiver"
 # Free and open-source OpenVPN client
 cask "tunnelblick"
 # Disk encryption software focusing on security based on TrueCrypt
@@ -242,6 +254,7 @@ cask "vlc"
 cask "whatsapp"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "Avenue", id: 1523681067
 mas "DaVinci Resolve", id: 571213070
 mas "Disk Speed Test", id: 425264550
 mas "GIPHY CAPTURE", id: 668208984
@@ -257,10 +270,10 @@ vscode "dbaeumer.vscode-eslint"
 vscode "dnicolson.binary-plist"
 vscode "donjayamanne.githistory"
 vscode "eamodio.gitlens"
-vscode "EditorConfig.EditorConfig"
+vscode "editorconfig.editorconfig"
 vscode "esbenp.prettier-vscode"
-vscode "ESPHome.esphome-vscode"
-vscode "GitHub.codespaces"
+vscode "esphome.esphome-vscode"
+vscode "github.codespaces"
 vscode "github.vscode-github-actions"
 vscode "golang.go"
 vscode "gurumukhi.selected-lines-count"
@@ -270,6 +283,7 @@ vscode "keesschollaart.vscode-home-assistant"
 vscode "kj.sqltools-driver-redshift"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
+vscode "ms-python.debugpy"
 vscode "ms-python.isort"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
@@ -295,7 +309,7 @@ vscode "ms-vsliveshare.vsliveshare"
 vscode "mtxr.sqltools"
 vscode "mtxr.sqltools-driver-mysql"
 vscode "mtxr.sqltools-driver-pg"
-vscode "Orta.vscode-jest"
+vscode "orta.vscode-jest"
 vscode "pranaygp.vscode-css-peek"
 vscode "rebornix.ruby"
 vscode "redhat.vscode-yaml"
