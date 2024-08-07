@@ -51,7 +51,7 @@ function watchcmd () {
 alias watch='watchcmd' # https://unix.stackexchange.com/questions/25327/watch-command-alias-expansion
 exists bat && alias cat='bat'
 exists batcat && alias cat='batcat'
-alias exa='exa -laFh --git'
+alias lsd='lsd -laFh --git'
 alias trail='<<<${(F)path}'
 alias ftrail='<<<${(F)fpath}'
 alias lp='sudo lsof -i -P | grep LISTEN'
@@ -561,7 +561,7 @@ alias dotinstall="$DOTFILES/install"
 alias dotupdate="$DOTFILES/update"
 
 # Override Alias
-alias ls='exa'
+alias ls='lsd'
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 

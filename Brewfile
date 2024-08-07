@@ -17,10 +17,12 @@ brew "autoconf"
 brew "automake"
 # Nuke a whole AWS account and delete all its resources
 brew "aws-nuke"
-# Text processing system for reStructuredText
-brew "docutils"
 # Integrated shell for working with the AWS CLI
 brew "aws-shell"
+# C parser in Python
+brew "pycparser"
+# C Foreign Function Interface for Python
+brew "cffi"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Official Amazon AWS command-line interface
@@ -32,17 +34,13 @@ brew "libssh2"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Core application library for C
-brew "glib", link: false
+brew "glib"
 # OpenType text shaping engine
 brew "harfbuzz"
 # Development kit for the Java programming language
 brew "openjdk"
 # Remove large files or passwords from Git history like git-filter-branch
 brew "bfg"
-# C parser in Python
-brew "pycparser"
-# C Foreign Function Interface for Python
-brew "cffi"
 # Statistics utility to count lines of code
 brew "cloc"
 # Cross-platform make
@@ -55,6 +53,10 @@ brew "csvkit"
 brew "dnsmasq", restart_service: true
 # Pack, ship and run any application as a lightweight container
 brew "docker", link: false
+# Text processing system for reStructuredText
+brew "docutils"
+# C library of Git core methods that is re-entrant and linkable
+brew "libgit2"
 # Modern replacement for 'ls'
 brew "exa"
 # Perl lib for reading and writing EXIF metadata
@@ -99,6 +101,8 @@ brew "libksba"
 brew "libusb"
 # XML security library
 brew "libxmlsec1"
+# Clone of ls with colorful output, file type icons, and more
+brew "lsd"
 # Keep your Mac's application settings in sync
 brew "mackup"
 # Utility for directing compilation
@@ -115,6 +119,8 @@ brew "node"
 brew "nvm"
 # Tools for one-time password authentication systems
 brew "oath-toolkit"
+# Create, run, and share large language models (LLMs)
+brew "ollama"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
 # Pinentry for GPG on Mac
@@ -162,7 +168,7 @@ brew "weaveworks/tap/eksctl"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Application launcher and productivity software
-cask "alfred4"
+cask "alfred@4"
 # Electronics prototyping platform
 cask "arduino"
 # Electronics prototyping platform
@@ -191,9 +197,7 @@ cask "dropbox"
 cask "dxo-pureraw"
 # Control your Elgato key lights
 cask "elgato-control-center"
-# Free monospaced font with programming ligatures
 cask "font-fira-code"
-# Developer targeted fonts with a high number of glyphs
 cask "font-meslo-lg-nerd-font"
 # Fujitsu ScanSnap Scanner software
 cask "fujitsu-scansnap-home"
